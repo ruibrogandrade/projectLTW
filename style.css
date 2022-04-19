@@ -6,6 +6,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
 body{
     height: 100%;
     overflow: hidden;
@@ -17,6 +18,8 @@ header{
     align-items: center; /* Alinhamento na vertical*/
     justify-content: space-between; /*Alinhamento na horizontal*/
 }
+
+
 a{
     text-decoration: none; /*remove underline e visited-color from link*/
 }
