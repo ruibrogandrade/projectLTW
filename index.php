@@ -9,7 +9,7 @@
 <body>
     <div class="sidebar"></div>
     <header>
-        <a href="mainPage.html" class="logo"><img src="IMAGES/logo.png"> </a>
+        <a href="index.php" class="logo"><img src="IMAGES/logo.png"> </a>
 
         <div class="toggle" onclick="toggleMenu();">
         </div>
@@ -34,7 +34,7 @@
             <li><a href="#" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
             <li><a href="#" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Orders</a> </li>
             <li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Restaurants</a> </li>
-            <li><a href="#" class="menu_element" onmouseover="changeColor(5)" onmouseout="defaultColor()">Login / Register</a> </li>
+            <li><a href="login.php" class="menu_element" onmouseover="changeColor(5)" onmouseout="defaultColor()">Login / Register</a> </li>
         </ul>
         
         <script>
