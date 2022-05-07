@@ -219,7 +219,7 @@ span.text-out{
     height: 20em;
     display: flex;
     flex-direction: column;
-    background-color: #94d2bd;
+    background-color: #df5a17;
     padding: 2em;
     align-items: center;
     position: relative;
@@ -256,4 +256,17 @@ span.text-out{
     position: absolute;
     bottom: 1em;
     left: 2.5em;
+    color: white;
   }
+
+.loginformsextras a{
+    color: white;
+    background-color:#df5a17;
+    margin-top: 1em;
+    border-top: 1em;
+    padding-right: 0.9em;
+    padding-left: 0.9em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    border-radius: 3em;
+}
