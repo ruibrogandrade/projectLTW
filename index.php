@@ -25,16 +25,16 @@
 
             }
         </script>
-<!--
+
         <ul class="menu">
-            <li><a href="#" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()">Restaurants</a> </li>
+            <li><a href="restaurants.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Restaurants</a> </li>
             <li><a href="#" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Profile</a> </li>
             <li><a href="#" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
             <li><a href="#" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Orders</a> </li>
             <li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Restaurants</a> </li>
             <li><a href="login.php" class="menu_element" onmouseover="changeColor(5)" onmouseout="defaultColor()">Login / Register</a> </li>
         </ul>
--->        
+    
         <script>
             function changeColor(index){
                 var list_elements = document.getElementsByClassName("menu_element");
@@ -82,7 +82,7 @@
 
         <div class="circle"></div>
     </div>
-<!--
+
     <script>
         const txts = document.querySelector(".slider").children;
         let index = 0;
@@ -114,6 +114,6 @@
         window.onload=animateText;
 
     </script>
---> 
+
 </body>
 </html>

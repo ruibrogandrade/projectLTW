@@ -3,9 +3,20 @@ PRAGMA foreign_keys = on;
 .headers on
 .nullvalue NULL
 
+DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Category;
+DROP TABLE IF EXISTS Restaurant;
+DROP TABLE IF EXISTS FavouriteRestaurant;
+DROP TABLE IF EXISTS Review;
+DROP TABLE IF EXISTS Dish;
+DROP TABLE IF EXISTS FavouriteDish;
+DROP TABLE IF EXISTS Photo;
+DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS OrderDish;
+
+-- Create tables
 
 -- Table: User
-DROP TABLE IF EXISTS User;
 CREATE TABLE User (
   id            INTEGER PRIMARY KEY,
   username		STRING UNIQUE NOT NULL,
@@ -15,14 +26,12 @@ CREATE TABLE User (
 );
 
 -- Table: Category
-DROP TABLE IF EXISTS Category;
 CREATE TABLE Category (
   id        INTEGER PRIMARY KEY,
   name  		STRING
 );
 
 -- Table: Restaurant
-DROP TABLE IF EXISTS Restaurant;
 CREATE TABLE Restaurant (
   id            INTEGER PRIMARY KEY,
   name  		    STRING,
@@ -32,7 +41,6 @@ CREATE TABLE Restaurant (
 );
 
 -- Table: FavouriteRestaurant
-DROP TABLE IF EXISTS FavouriteRestaurant;
 CREATE TABLE FavouriteRestaurant (
   id_user           INTEGER References User(id),
   id_restaurant     INTEGER References Restaurant(id),
@@ -40,7 +48,6 @@ CREATE TABLE FavouriteRestaurant (
 );
 
 -- Table: Review
-DROP TABLE IF EXISTS Review;
 CREATE TABLE Review (
   id                INTEGER PRIMARY KEY,
   classification  	INTEGER CHECK(classification > 0 AND classification <= 5),
@@ -51,7 +58,6 @@ CREATE TABLE Review (
 );
 
 -- Table: Dish
-DROP TABLE IF EXISTS Dish;
 CREATE TABLE Dish (
   id                INTEGER PRIMARY KEY,
   name  	          STRING,
@@ -61,7 +67,6 @@ CREATE TABLE Dish (
 );
 
 -- Table: FavouriteDish
-DROP TABLE IF EXISTS FavouriteDish;
 CREATE TABLE FavouriteDish (
   id_user           INTEGER References User(id),
   id_dish            INTEGER References Dish(id),
@@ -69,7 +74,6 @@ CREATE TABLE FavouriteDish (
 );
 
 -- Table: Photo
-DROP TABLE IF EXISTS Photo;
 CREATE TABLE Photo (
   id                INTEGER PRIMARY KEY,
   url               STRING,
@@ -77,7 +81,6 @@ CREATE TABLE Photo (
 );
 
 -- Table: Orders
-DROP TABLE IF EXISTS Orders;
 CREATE TABLE Orders (
   id                INTEGER PRIMARY KEY,
   state             STRING,
@@ -87,7 +90,6 @@ CREATE TABLE Orders (
 );
 
 --Table: OrderDish
-DROP TABLE IF EXISTS OrderDish;
 CREATE TABLE OrderDish (
   id_order           INTEGER References Orders(id),
   id_dish            INTEGER References Dish(id),
@@ -95,10 +97,24 @@ CREATE TABLE OrderDish (
 );
 
 
+--Populate tables
+
 INSERT INTO Restaurant VALUES(0,'McDonalds','Avenida dos Aliados, Porto',0,0);
+
+
+
 INSERT INTO Category VALUES(0,'Fast Food');
+
+
+
 INSERT INTO Dish VALUES(0,'Hamgurguer vegetariano',4.50,0,0);
+
+
+
 INSERT INTO User VALUES(0,"lolipop","a3dj!ea","luislollipop@gmail.com",91345928);
+
+
+
 INSERT INTO Review VALUES(0,4.0,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 Nunc lacinia dolor vitae neque condimentum, vel convallis quam sodales. 
 Suspendisse pellentesque dictum mi in imperdiet. 
@@ -113,3 +129,4 @@ metus augue ultricies arcu, in venenatis nunc felis quis odio.','Duis sed dapibu
  Ut sem lectus, semper a dui vehicula, elementum elementum sem. Sed eget lorem sit amet diam pharetra
 euismod quis lobortis metus. Maecenas eu blandit turpis. 
 Nulla mollis gravida diam, eu pulvinar purus mollis eleifend.',0,0);
+
