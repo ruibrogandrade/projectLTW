@@ -9,12 +9,11 @@
 <body>
     <div class="sidebar"></div>
     <header>
-        <a href="mainPage.html" class="logo"><img src="IMAGES/logo.png"> </a>
+        <a href="index.php" class="logo"><img src="IMAGES/logo.png"> </a>
 
         <div class="toggle" onclick="toggleMenu();">
         </div>
 
-        
         <script>
             function toggleMenu(){
                 const menuToggle = document.querySelector(".toggle");
@@ -26,8 +25,7 @@
 
             }
         </script>
-
-        
+<!--
         <ul class="menu">
             <li><a href="#" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()">Restaurants</a> </li>
             <li><a href="#" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Profile</a> </li>
@@ -36,7 +34,7 @@
             <li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Restaurants</a> </li>
             <li><a href="#" class="menu_element" onmouseover="changeColor(5)" onmouseout="defaultColor()">Login / Register</a> </li>
         </ul>
-        
+-->        
         <script>
             function changeColor(index){
                 var list_elements = document.getElementsByClassName("menu_element");
@@ -56,7 +54,6 @@
 
     </header>
     
-
     <div class="content">
         <div class="text">
             <h1>We deliver every type of food. <br> Like 
@@ -73,7 +70,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis 
                 bibendum dolor in semper. Integer quis porta libero. Donec vehicula 
                 non augue sit amet cursus. In tortor enim, auctor dictum felis consectetur. </p>
-            <a href="#" class="restaurant-link">Visit Restaurant </a>
+            <a href="restaurants.php" class="restaurant-link">Visit Restaurant </a>
         </div>
         <img class="foodimage" src="IMAGES/img1.png">
 
@@ -85,13 +82,13 @@
 
         <div class="circle"></div>
     </div>
-
+<!--
     <script>
         const txts = document.querySelector(".slider").children;
         let index = 0;
         const restaurants = ["#starbucks", "#mc", "#pizza", "#sushi", "#kfc"];
         
-        
+      
     
         function animateText(){
             if(index==0){
@@ -117,8 +114,6 @@
         window.onload=animateText;
 
     </script>
-
-
-
+--> 
 </body>
 </html>
