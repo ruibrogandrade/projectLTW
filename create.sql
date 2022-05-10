@@ -89,7 +89,7 @@ CREATE TABLE Orders (
   id_user           INTEGER References User(id)
 );
 
---Table: OrderDish
+-- Table: OrderDish
 CREATE TABLE OrderDish (
   id_order           INTEGER References Orders(id),
   id_dish            INTEGER References Dish(id),
@@ -97,8 +97,7 @@ CREATE TABLE OrderDish (
 );
 
 
---Populate tables
-
+-- Populate tables
 INSERT INTO Restaurant VALUES(0,'McDonalds','Avenida dos Aliados, Porto',0,0);
 INSERT INTO Restaurant VALUES(1,'Burguer King','Avenida dos Aliados, Gaia',0,0);
 INSERT INTO Restaurant VALUES(2,'KFC','Avenida dos Aliados, Porto',0,0);
