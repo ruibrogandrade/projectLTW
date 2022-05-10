@@ -99,23 +99,35 @@ CREATE TABLE OrderDish (
 
 --Populate tables
 
-INSERT INTO Restaurant VALUES(0,'McDonalds','Avenida dos Aliados, Porto',0,0);
-
-
+--INSERT INTO User VALUES(0,"lolipop","a3dj!ea","luislollipop@gmail.com",91345928);
 
 INSERT INTO Category VALUES(0,'Fast Food');
+INSERT INTO Category VALUES(1,'Cofee');
+INSERT INTO Category VALUES(2,'Japanese Food');
+INSERT INTO Category VALUES(3,'Ice Cream');
+INSERT INTO Category VALUES(4,'Brazilian Food');
+
+/*
+INSERT INTO Restaurant VALUES(0,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(1,'KFC','Rua Rosa Teixeira, Porto',1,0);
+INSERT INTO Restaurant VALUES(2,'Starbucks','Avenida Eça de Queirós, Porto',2,1);
+INSERT INTO Restaurant VALUES(3,'Burguer King','Combatentes, Porto',3,0);
+INSERT INTO Restaurant VALUES(4,'Pizza Hut','Trindade, Porto',4,0);
+INSERT INTO Restaurant VALUES(5,'Papa Johns','Marquês do Pombal, Porto',5,0);
+INSERT INTO Restaurant VALUES(6,'SushiPlace','Estádio do Dragão, Porto',6,2);
+INSERT INTO Restaurant VALUES(7,'Sabor gaucho','Alameda Shopping, Porto',7,4);
+INSERT INTO Restaurant VALUES(8,'Pans','NorteShopping, Porto',8,0);
+INSERT INTO Restaurant VALUES(9,'Ola','Rua de Santa Catarina, Porto',9,3);
+*/
 
 
 
-INSERT INTO Dish VALUES(0,'Hamgurguer vegetariano',4.50,0,0);
+--INSERT INTO Dish VALUES(0,'Hamgurguer vegetariano',4.50,0,0);
 
 
 
-INSERT INTO User VALUES(0,"lolipop","a3dj!ea","luislollipop@gmail.com",91345928);
 
-
-
-INSERT INTO Review VALUES(0,4.0,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+/*INSERT INTO Review VALUES(0,4.0,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 Nunc lacinia dolor vitae neque condimentum, vel convallis quam sodales. 
 Suspendisse pellentesque dictum mi in imperdiet. 
 Pellentesque efficitur odio viverra facilisis posuere. 
@@ -129,4 +141,4 @@ metus augue ultricies arcu, in venenatis nunc felis quis odio.','Duis sed dapibu
  Ut sem lectus, semper a dui vehicula, elementum elementum sem. Sed eget lorem sit amet diam pharetra
 euismod quis lobortis metus. Maecenas eu blandit turpis. 
 Nulla mollis gravida diam, eu pulvinar purus mollis eleifend.',0,0);
-
+*/
