@@ -100,6 +100,21 @@ CREATE TABLE OrderDish (
 --Populate tables
 
 INSERT INTO Restaurant VALUES(0,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(1,'Burguer King','Avenida dos Aliados, Gaia',0,0);
+INSERT INTO Restaurant VALUES(2,'KFC','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(3,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(4,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(5,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(6,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(7,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(8,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(9,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(10,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(11,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(12,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(13,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(14,'McDonalds','Avenida dos Aliados, Porto',0,0);
+INSERT INTO Restaurant VALUES(15,'McDonalds','Avenida dos Aliados, Porto',0,0);
 
 
 
