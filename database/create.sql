@@ -90,7 +90,7 @@ CREATE TABLE Orders (
   id_user           INTEGER References User(id)
 );
 
---Table: OrderDish
+-- Table: OrderDish
 CREATE TABLE OrderDish (
   id_order           INTEGER References Orders(id),
   id_dish            INTEGER References Dish(id),

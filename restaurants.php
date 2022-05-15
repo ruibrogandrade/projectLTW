@@ -8,30 +8,72 @@
   <body>
     <header>
         <h1><a href="/">Porto Eats</a></h1>
-        <h1><a href="/">Restaurants</a></h1>
+        <h1>Restaurants</h1>
+        
+  <div class="searchbar">
+  <input type="text" placeholder="Search...">
+  </div>
+
     </header>
-  
+    
     <main>
-      <h2>Restaurants Names</h2>
+      <h2>Restaurants</h2>
       <section id="restaurants">
-        <article>
-          <img src="https://picsum.photos/200?1">
+
+        <div class="row">
+          <div class="column">
+            <img src="https://picsum.photos/200?1">
           <a href="dishes.php?id=1">Restaurant Name</a>
           <p class="info">Address</p>
           <p class="info">Category</p>
-        </article>
-        <article>
+        </div>
+        <div class="column">
           <img src="https://picsum.photos/200?2">
           <a href="dishes.php?id=1">Restaurant Name</a>
           <p class="info">Address</p>
           <p class="info">Category</p>
-        </article>
-        <article>
+        </div>
+        <div class="column">
           <img src="https://picsum.photos/200?3">
           <a href="dishes.php?id=1">Restaurant Name</a>
           <p class="info">Address</p>
           <p class="info">Category</p>
-        </article>
+      </div>
+          <div class="column">
+            <img src="https://picsum.photos/200?4">
+          <a href="dishes.php?id=1">Restaurant Name</a>
+          <p class="info">Address</p>
+          <p class="info">Category</p>
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="column">
+            <img src="https://picsum.photos/200?5">
+          <a href="dishes.php?id=1">Restaurant Name</a>
+          <p class="info">Address</p>
+          <p class="info">Category</p>
+        </div>
+        <div class="column">
+          <img src="https://picsum.photos/200?6">
+          <a href="dishes.php?id=1">Restaurant Name</a>
+          <p class="info">Address</p>
+          <p class="info">Category</p>
+        </div>
+        <div class="column">
+          <img src="https://picsum.photos/200?7">
+          <a href="dishes.php?id=1">Restaurant Name</a>
+          <p class="info">Address</p>
+          <p class="info">Category</p>
+      </div>
+          <div class="column">
+            <img src="https://picsum.photos/200?8">
+          <a href="dishes.php?id=1">Restaurant Name</a>
+          <p class="info">Address</p>
+          <p class="info">Category</p>
+        </div>
+        </div>
+
       </section>
     </main>
     <footer>

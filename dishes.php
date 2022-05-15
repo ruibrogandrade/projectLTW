@@ -13,16 +13,30 @@
   
     <main>
       <h2>Restaurant Name</h2>
-      <h3><a href="restaurants.php?id=1">Dish Name</a></h3>
       <article>
+        <class="row">
+        <div class="column">
           <img src="https://picsum.photos/200?1">
-          <a href="dishes.php?id=1">Dish Name</a>
+          <a href="restaurants.php?id=1">Dish Name</a>
           <p class="info">Price</p>
           <p class="info">Category</p>
-        </article>
+</div>
+        <div class="column">
+          <img src="https://picsum.photos/200?2">
+          <a href="restaurants.php?id=2">Dish Name</a>
+          <p class="info">Price</p>
+          <p class="info">Category</p>
+</div>
+        <div class="column">
+          <img src="https://picsum.photos/200?3">
+          <a href="restaurants.php?id=3">Dish Name</a>
+          <p class="info">Price</p>
+          <p class="info">Category</p>
+</div>
+</div>
+      </article>
     </main>
-    <footer>
-      Dishes &copy; 2022
-    </footer>
+
+    <footer> Dishes &copy; 2022 </footer>
   </body>
 </html>
