@@ -10,11 +10,11 @@
       <h1><a href="/">Porto Eats</a></h1>
       </header>
       <div class=wrapper>
-      <form class="register" action="action_login.php" method="post">
+      <form class="register" action="action_register.php" method="post">
         <div class = "radio">
         <input type = "radio" name="Owner/Client" id="Owner" value="Owner" checked>
         <label for="Owner">Owner</label>
-        <input type = "radio" name="Owner/Client" id="Client" value="Client">
+        <input type = "radio" name="Owner/Client" id="Client" value="">
         <label for="Client">Client</label>
         </div>
         <input type="text" name="username" placeholder="username">

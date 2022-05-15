@@ -19,6 +19,7 @@ DROP TABLE IF EXISTS OrderDish;
 -- Table: User
 CREATE TABLE User (
   id            INTEGER PRIMARY KEY,
+  isOwner     BOOLEAN,
   username		STRING UNIQUE NOT NULL,
   password	    STRING NOT NULL check(length(password) >= 8),
   adress        STRING,

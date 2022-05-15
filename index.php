@@ -28,7 +28,7 @@
 
         <ul class="menu">
             <li><a href="restaurants.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Restaurants</a> </li>
-            <li><a href="#" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Profile</a> </li>
+            <li><a href="profile.php" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Profile</a> </li>
             <li><a href="#" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
             <li><a href="#" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Orders</a> </li>
             <li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Restaurants</a> </li>
