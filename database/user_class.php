@@ -25,22 +25,42 @@ class User {
       $this->phoneNumber = $phoneNumber;
     }
 
-    public function insertUser($pdo,int $id,bool $isOwner, string $username, string $password, string $address, string $phoneNumber) {
+    public static function getUserWithPassword(PDO $db, string $username, string $password) : ?User {
+        $stmt = $db->prepare('
+          SELECT id, isOwner, username, password, address, phoneNumber
+          FROM User 
+          WHERE lower(username) = ? AND password = ?
+        ');
+  
+        $stmt->execute(array(strtolower($username), hash('sha256', $password)));
+    
+        if ($customer = $stmt->fetch()) {
+          return new User(
+            $customer['id'],
+            $customer['isOwner'],
+            $customer['username'],
+            $customer['password'],
+            $customer['address'],
+            $customer['phoneNumber'],
+          );
+        } else return null;
+      }
+
+    public static function insertUser($pdo,bool $isOwner, string $username, string $password, string $address, string $phoneNumber) {
+        var_dump($isOwner, $username, $password,$address,$phoneNumber);
         $password = hash('sha256', $password);
-        $sql = 'INSERT INTO User VALUES(:id,:isOwner,:username,:password,:address,:phoneNumber)';
-        debug_to_console($id);
+        $sql = 'INSERT INTO User VALUES(NULL,:isOwner,:username,:password,:address,:phoneNumber)';
         debug_to_console($isOwner);
         debug_to_console($username);
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':isOwner', $isOwner);
         $stmt->bindValue(':username', $username);
         $stmt->bindValue(':password', $password);
         $stmt->bindValue(':address', $address);
-        $stmt->bindValue(':phoneNumber', $id);
+        $stmt->bindValue(':phoneNumber', $phoneNumber);
         $stmt->execute();
 
-        return $this->pdo->lastInsertId();
+        return $pdo->lastInsertId();
     }
 }
 ?>

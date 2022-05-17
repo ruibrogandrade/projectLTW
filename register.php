@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
+    <title>Register Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,16 +12,16 @@
       <div class=wrapper>
       <form class="register" action="action_register.php" method="post">
         <div class = "radio">
-        <input type = "radio" name="Owner/Client" id="Owner" value="Owner" checked>
+        <input type = "radio" name="isOwner" id="Owner" value="true">
         <label for="Owner">Owner</label>
-        <input type = "radio" name="Owner/Client" id="Client" value="">
+        <input type = "radio" name="isOwner" id="Client" value="false" checked>
         <label for="Client">Client</label>
         </div>
         <input type="text" name="username" placeholder="username">
         <input type="password" name="password" placeholder="password">
         <input type="text" name="address" placeholder="address">
         <input type="tel" name="phoneNumber" placeholder="phone number">
-        <a href="register.php">Register</a>
+        <input type="submit" value="Register"></input> 
       </form> 
       <div class="circle"></div>
       </div>
