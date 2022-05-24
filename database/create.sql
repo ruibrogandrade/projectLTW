@@ -22,7 +22,7 @@ CREATE TABLE User (
   isOwner     BOOLEAN,
   username		STRING UNIQUE NOT NULL,
   password	    STRING NOT NULL check(length(password) >= 8),
-  adress        STRING,
+  address        STRING,
   phoneNumber   INTEGER
 );
 
@@ -36,9 +36,9 @@ CREATE TABLE Category (
 CREATE TABLE Restaurant (
   id            INTEGER PRIMARY KEY,
   name  		    STRING,
-  adress        STRING,
-  id_owner      INTEGER References User(id),
-  id_category   INTEGER References Category(id)
+  address        STRING,
+  id_Owner      INTEGER References User(id),
+  id_Category   INTEGER References Category(id)
 );
 
 -- Table: FavouriteRestaurant
@@ -100,7 +100,9 @@ CREATE TABLE OrderDish (
 
 --Populate tables
 
---INSERT INTO User VALUES(0,"lolipop","a3dj!ea","luislollipop@gmail.com",91345928);
+INSERT INTO User VALUES(0,1,"lolipop","a3dj!eadwqdw","luislollipop@gmail.com",91345928);
+INSERT INTO User VALUES(1,1,"lolipop2","a3dj!eadwqwd","luislollipop@gmail.com",91345928);
+INSERT INTO User VALUES(2,0,"lolipop3","a3dj!eadwdqww","luislollipop@gmail.com",91345928);
 
 INSERT INTO Category VALUES(0,'Fast Food');
 INSERT INTO Category VALUES(1,'Cofee');
@@ -108,18 +110,18 @@ INSERT INTO Category VALUES(2,'Japanese Food');
 INSERT INTO Category VALUES(3,'Ice Cream');
 INSERT INTO Category VALUES(4,'Brazilian Food');
 
-/*
-INSERT INTO Restaurant VALUES(0,'McDonalds','Avenida dos Aliados, Porto',0,0);
+
+INSERT INTO Restaurant VALUES(0,'McDonalds','Avenida dos Aliados, Porto',1,0);
 INSERT INTO Restaurant VALUES(1,'KFC','Rua Rosa Teixeira, Porto',1,0);
-INSERT INTO Restaurant VALUES(2,'Starbucks','Avenida Eça de Queirós, Porto',2,1);
-INSERT INTO Restaurant VALUES(3,'Burguer King','Combatentes, Porto',3,0);
-INSERT INTO Restaurant VALUES(4,'Pizza Hut','Trindade, Porto',4,0);
-INSERT INTO Restaurant VALUES(5,'Papa Johns','Marquês do Pombal, Porto',5,0);
-INSERT INTO Restaurant VALUES(6,'SushiPlace','Estádio do Dragão, Porto',6,2);
-INSERT INTO Restaurant VALUES(7,'Sabor gaucho','Alameda Shopping, Porto',7,4);
-INSERT INTO Restaurant VALUES(8,'Pans','NorteShopping, Porto',8,0);
-INSERT INTO Restaurant VALUES(9,'Ola','Rua de Santa Catarina, Porto',9,3);
-*/
+INSERT INTO Restaurant VALUES(2,'Starbucks','Avenida Eça de Queirós, Porto',1,1);
+INSERT INTO Restaurant VALUES(3,'Burguer King','Combatentes, Porto',1,0);
+INSERT INTO Restaurant VALUES(4,'Pizza Hut','Trindade, Porto',1,0);
+INSERT INTO Restaurant VALUES(5,'Papa Johns','Marquês do Pombal, Porto',1,0);
+INSERT INTO Restaurant VALUES(6,'SushiPlace','Estádio do Dragão, Porto',1,2);
+INSERT INTO Restaurant VALUES(7,'Sabor gaucho','Alameda Shopping, Porto',1,4);
+INSERT INTO Restaurant VALUES(8,'Pans','NorteShopping, Porto',1,0);
+INSERT INTO Restaurant VALUES(9,'Ola','Rua de Santa Catarina, Porto',1,3);
+
 
 
 

@@ -5,7 +5,6 @@
 
 class User {
 
-    //private $pdo;
     public int $id;
     public bool $isOwner;
     public string $username;
@@ -16,7 +15,6 @@ class User {
 
     public function __construct(int $id, bool $isOwner, string $username, string $password, string $address, string $phoneNumber)
     { 
-      //$this->pdo = $pdo;
       $this->id = $id;
       $this->isOwner = $isOwner;
       $this->username = $username;
@@ -34,14 +32,14 @@ class User {
   
         $stmt->execute(array(strtolower($username), hash('sha256', $password)));
     
-        if ($customer = $stmt->fetch()) {
+        if ($user = $stmt->fetch()) {
           return new User(
-            $customer['id'],
-            $customer['isOwner'],
-            $customer['username'],
-            $customer['password'],
-            $customer['address'],
-            $customer['phoneNumber'],
+            $user['id'],
+            $user['isOwner'],
+            $user['username'],
+            $user['password'],
+            $user['address'],
+            $user['phoneNumber'],
           );
         } else return null;
       }
