@@ -8,6 +8,7 @@
 
   $db = getDatabaseConnection();
 
+  if($_POST['password']) { 
   $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
   if ($user) {
     $_SESSION['id'] = $user->id;
@@ -15,9 +16,15 @@
     $_SESSION['username'] = $user->username;
     $_SESSION['address'] = $user->address;
     $_SESSION['phoneNumber'] = $user->phoneNumber;
-  } else {
+
+    header('Location: profile.php');
+  }
+  else {
     header('Location: login.php');
   }
 
-  header('Location: profile.php');
+}
+else {
+  header('Location: login.php');
+}
 ?>
