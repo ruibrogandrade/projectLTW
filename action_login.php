@@ -8,11 +8,11 @@
 
   $db = getDatabaseConnection();
 
-  $customer = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
+  $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
 
-  if ($customer) {
-    $_SESSION['id'] = $customer->id;
-    $_SESSION['username'] = $customer->username;
+  if ($user) {
+    $_SESSION['id'] = $user->id;
+    $_SESSION['username'] = $user->username;
   }
 
   header('Location: ' . $_SERVER['HTTP_REFERER']);
