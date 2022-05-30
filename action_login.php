@@ -8,12 +8,14 @@
 
   $db = getDatabaseConnection();
 
-  $customer = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
-
-  if ($customer) {
-    $_SESSION['id'] = $customer->id;
-    $_SESSION['username'] = $customer->username;
+  $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
+  if ($user) {
+    $_SESSION['id'] = $user->id;
+    $_SESSION['isOwner'] = $user->isOwner;
+    $_SESSION['username'] = $user->username;
+    $_SESSION['address'] = $user->address;
+    $_SESSION['phoneNumber'] = $user->phoneNumber;
   }
 
-  header('Location: ' . $_SERVER['HTTP_REFERER']);
+  header('Location: profile.php');
 ?>

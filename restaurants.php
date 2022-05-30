@@ -23,8 +23,6 @@
     <section id="restaurants">
       <?php
 
-      session_start();
-
       require_once('database/connection.db.php');
       require_once('database/restaurant_class.php');
       $i = 4;

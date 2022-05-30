@@ -33,23 +33,13 @@ class User {
         $stmt->execute(array(strtolower($username), hash('sha256', $password)));
     
         if ($user = $stmt->fetch()) {
-          return new User(
-            $user['id'],
-            $user['isOwner'],
-            $user['username'],
-            $user['password'],
-            $user['address'],
-            $user['phoneNumber'],
-          );
+          return new User((int)$user['id'],(bool)$user['isOwner'],$user['username'],$user['password'],$user['address'],$user['phoneNumber']);
         } else return null;
       }
 
     public static function insertUser($pdo,bool $isOwner, string $username, string $password, string $address, string $phoneNumber) {
-        var_dump($isOwner, $username, $password,$address,$phoneNumber);
         $password = hash('sha256', $password);
         $sql = 'INSERT INTO User VALUES(NULL,:isOwner,:username,:password,:address,:phoneNumber)';
-        debug_to_console($isOwner);
-        debug_to_console($username);
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':isOwner', $isOwner);
         $stmt->bindValue(':username', $username);

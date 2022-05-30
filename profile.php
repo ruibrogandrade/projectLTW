@@ -10,20 +10,24 @@
       <h1><a href="/">Porto Eats</a></h1>
       </header>
 <ul>
-    <div class="ProfilePage">
-    <li>Username</li>
-    <button type="submit" id="username-edit-button">Edit</button>
-    <button type="submit" id="username-end-editing">Done</button>
-    <li>Password</li>
-    <button type="submit" id="password-edit-button">Edit</button>
-    <button type="submit" id="password-end-editing">Done</button>
-    <li>Address</li>
-    <button type="submit" id="address-edit-button">Edit</button>
-    <button type="submit" id="address-end-editing">Done</button>
-    <li>Phone Number</li>
-    <button type="submit" id="phoneNumber-edit-button">Edit</button>
-    <button type="submit" id="phoneNumber-end-editing">Done</button>
-    </div>
+<div class="ProfilePage">
+<?php
+
+session_start();
+
+echo '<li>' . $_SESSION["username"] . '</li>' 
+. '<li>Password</li>' .
+'<li>' . $_SESSION["address"] . '</li>' .
+'<li>' . $_SESSION["phoneNumber"] . '</li>' 
+
+?>
+
+<form class="register" action="action_logout.php">
+    <input type="submit">Log out</input> 
+</form> 
+
+
+</div>
 </ul>
 </body>
 </html>
