@@ -36,7 +36,7 @@
           echo '<div class="row">';
         }
           echo '<div class="column">' .
-          '<img src="https://picsum.photos/200?1">' .
+          '<img src="https://picsum.photos/200?id='. $restaurant['id'] .'">' .
           '<a href="dishes.php?id='. $restaurant['id'] .'">' . $restaurant['name'] . ' </a>
           <p class="info">'.$restaurant['address'].'</p>
           <p class="info">'. $restaurant['id_category'] .'</p>' . '</div>';
@@ -47,6 +47,7 @@
           }
       }
       ?>
+<!--       
       <!
       <div class="row">
         <div class="column">
@@ -106,8 +107,7 @@
     </section>
   </main>
   <footer>
-    Restaurants &copy; 2022
+   <span>Restaurants &copy; 2022</span> 
   </footer>
 </body>
-
 </html>
