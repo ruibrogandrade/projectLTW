@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="mainpage">
     <div class="sidebar"></div>
     <header>
         <a href="index.php" class="logo"><img src="IMAGES/logo.png"> </a>

@@ -9,6 +9,10 @@ body {
     height: 100%;
 }
 
+.mainpage {
+    overflow: hidden;
+}
+
 
 header {
     padding: 1em;
@@ -342,4 +346,23 @@ header h1 a {
     position: absolute;
     top: auto;
     bottom: 0em;
+}
+
+html {
+    height: 110%;
+    margin-bottom: 0.01em;
+}
+
+.ProfilePage {
+    list-style: none;
+    margin-left: 40em;
+    color: white;
+    width: 24em;
+    height: 16em;
+    display: flex;
+    flex-direction: column;
+    background-color: #df5a17;
+    padding: 4em;
+    align-items: normal;
+    position: relative;
 }
