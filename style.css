@@ -7,6 +7,9 @@
 
 body {
     height: 100%;
+}
+
+.mainpage {
     overflow: hidden;
 }
 
@@ -344,4 +347,9 @@ header h1 a {
     position: absolute;
     top: auto;
     bottom: 0em;
+}
+
+html {
+    height: 110%;
+    margin-bottom: 0.01em;
 }
