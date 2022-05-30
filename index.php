@@ -34,9 +34,10 @@
             if(isset($_SESSION['username']))
             echo '<li><a href="profile.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Profile</a> </li>';
             else {
-            echo  '<li><a href="login.php" class="menu_element" onmouseover="changeColor(5)" onmouseout="defaultColor()">Login / Register</a> </li>';
+            echo  '<li><a href="login.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()">Login / Register</a> </li>';
             }
             ?>
+
             <li><a href="restaurants.php" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Restaurants</a> </li>
             <li><a href="#" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
             <?php

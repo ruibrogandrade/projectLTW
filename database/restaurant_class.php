@@ -33,5 +33,22 @@ class Restaurant {
         } else return null;
         return $result;
     }
+
+    public static function getRestaurantWithId(PDO $db, int $id) : ?Restaurant {
+      $stmt = $db->prepare('
+        SELECT id, name, address, id_Owner, id_Category
+        FROM Restaurant 
+        WHERE id = ?
+      ');
+
+      $stmt->execute(array($id));
+  
+      if ($restaurant = $stmt->fetch()) {
+        return new Restaurant((int)$restaurant['id'], $restaurant['name'],$restaurant['address'],$restaurant['id_Owner'], $restaurant['id_Category'],);
+      } else return null;
+
+      var_dump($restaurant);
+      exit(0); 
+    }
 }
 ?>

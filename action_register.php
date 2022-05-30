@@ -10,6 +10,6 @@
 
     $customer = User::insertUser($db, filter_var($_POST['isOwner'],FILTER_VALIDATE_BOOLEAN), $_POST['username'], $_POST['password'], $_POST['address'], $_POST['phoneNumber']);
 
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: profile.php');
 
 ?>

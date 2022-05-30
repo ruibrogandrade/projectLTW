@@ -13,12 +13,12 @@
     <h1>Restaurants</h1>
 
     <div class="searchbar">
-      <input type="text" placeholder="Search...">
+      <input id="searchbar" type="text" onkeyup="search_restaurant()" placeholder="Search...">
     </div>
 
   </header>
 
-  <main>
+  <body>
     <h2>Restaurants</h2>
     <section id="restaurants">
       <?php
@@ -35,7 +35,7 @@
         }
           echo '<div class="column">' .
           '<img src="https://picsum.photos/200?id='. $restaurant['id'] .'">' .
-          '<a href="dishes.php?id='. $restaurant['id'] .'">' . $restaurant['name'] . ' </a>
+          '<a class="restaurant" href="dishes.php?id='. $restaurant['id'] .'">' . $restaurant['name'] . ' </a>
           <p class="info">'.$restaurant['address'].'</p>
           <p class="info">'. $restaurant['id_category'] .'</p>' . '</div>';
           $i+=1;
@@ -45,65 +45,9 @@
           }
       }
       ?>
-<!--       
-      <!
-      <div class="row">
-        <div class="column">
-          <img src="https://picsum.photos/200?1">
-          <a href="dishes.php?id=1">Restaurant Name</a>
-          <p class="info">Address</p>
-          <p class="info">Category</p>
-        </div>
-        <div class="column">
-          <img src="https://picsum.photos/200?2">
-          <a href="dishes.php?id=1">Restaurant Name</a>
-          <p class="info">Address</p>
-          <p class="info">Category</p>
-        </div>
-        <div class="column">
-          <img src="https://picsum.photos/200?3">
-          <a href="dishes.php?id=1">Restaurant Name</a>
-          <p class="info">Address</p>
-          <p class="info">Category</p>
-        </div>
-        <div class="column">
-          <img src="https://picsum.photos/200?4">
-          <a href="dishes.php?id=1">Restaurant Name</a>
-          <p class="info">Address</p>
-          <p class="info">Category</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="column">
-          <img src="https://picsum.photos/200?5">
-          <a href="dishes.php?id=1">Restaurant Name</a>
-          <p class="info">Address</p>
-          <p class="info">Category</p>
-        </div>
-        <div class="column">
-          <img src="https://picsum.photos/200?6">
-          <a href="dishes.php?id=1">Restaurant Name</a>
-          <p class="info">Address</p>
-          <p class="info">Category</p>
-        </div>
-        <div class="column">
-          <img src="https://picsum.photos/200?7">
-          <a href="dishes.php?id=1">Restaurant Name</a>
-          <p class="info">Address</p>
-          <p class="info">Category</p>
-        </div>
-        <div class="column">
-          <img src="https://picsum.photos/200?8">
-          <a href="dishes.php?id=1">Restaurant Name</a>
-          <p class="info">Address</p>
-          <p class="info">Category</p>
-        </div>
-      </div>
-    -->
-
     </section>
-  </main>
+    <script src="javascript/search.js"></script>
+    </body>
   <footer>
    <span>Restaurants &copy; 2022</span> 
   </footer>

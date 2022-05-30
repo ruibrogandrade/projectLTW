@@ -11,6 +11,7 @@
       </header>
 <ul>
 <div class="ProfilePage">
+    
 <?php
 
 session_start();

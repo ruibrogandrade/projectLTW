@@ -8,28 +8,40 @@
   <body>
     <header>
       <h1><a href="/">Porto Eats</a></h1>
-      <h1><a href="restaurants.php">Restaurants</a></h1>
+      <h1><a href="restaurants.php"></a></h1>
     </header>
   
     <main>
-      <h2>Restaurant Name</h2>
+          <h2>
+          <?php
+
+            session_start();
+
+            require_once('database/connection.db.php');
+            require_once('database/restaurant_class.php');
+
+            $db = getDatabaseConnection();
+
+            $restaurant = Restaurant::getRestaurantWithId($db, $_GET['id']);
+            echo $restaurant->name;
+            var_dump($restaurant->name);
+            exit(0); 
+            ?>
+    </h2>
       <article>
         <class="row">
         <div class="column">
           <img src="https://picsum.photos/200?1">
-          <a href="restaurants.php?id=1">Dish Name</a>
           <p class="info">Price</p>
           <p class="info">Category</p>
 </div>
         <div class="column">
-          <img src="https://picsum.photos/200?2">
-          <a href="restaurants.php?id=2">Dish Name</a>
+        <img src="https://picsum.photos/200?2">
           <p class="info">Price</p>
           <p class="info">Category</p>
 </div>
         <div class="column">
           <img src="https://picsum.photos/200?3">
-          <a href="restaurants.php?id=3">Dish Name</a>
           <p class="info">Price</p>
           <p class="info">Category</p>
 </div>

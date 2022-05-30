@@ -15,7 +15,7 @@
         <input type="password" name="password" placeholder="password">
         <a href="register.php">Register</a>
         <button type="submit">Login</button>
-      </form> 
+      </form>
       <div class="circle"></div>
       </div>
 </body>
