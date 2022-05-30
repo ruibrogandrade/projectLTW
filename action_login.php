@@ -15,6 +15,8 @@
     $_SESSION['username'] = $user->username;
     $_SESSION['address'] = $user->address;
     $_SESSION['phoneNumber'] = $user->phoneNumber;
+  } else {
+    header('Location: login.php');
   }
 
   header('Location: profile.php');
