@@ -11,19 +11,18 @@
       </header>
 <ul>
 <div class="ProfilePage">
-<?php
 
+<?php
 session_start();
 
-echo '<li>' . $_SESSION["username"] . '</li>' 
-. '<li>Password</li>' .
-'<li>' . $_SESSION["address"] . '</li>' .
-'<li>' . $_SESSION["phoneNumber"] . '</li>' 
-
+echo '<li>Utilizador: ' . $_SESSION["username"] . '</li>' . 
+'<li>Palavra-passe: *****</li>' .
+'<li>Email: ' . $_SESSION["address"] . '</li>' .
+'<li>Telemóvel: ' . $_SESSION["phoneNumber"] . '</li>' 
 ?>
 
 <form class="register" action="action_logout.php">
-    <input type="submit">Log out</input> 
+    <input type="submit" value="Log out"></input> 
 </form> 
 
 
