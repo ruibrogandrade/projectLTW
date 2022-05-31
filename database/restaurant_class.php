@@ -21,8 +21,10 @@ class Restaurant {
 
     public static function getRestaurants(PDO $db) {
         $stmt = $db->prepare('
-          SELECT id, name, address, id_Owner, id_Category
+          SELECT  Restaurant.id as id, Restaurant.name as name, address, id_Owner, Category.id as id_Category, Category.name as category_name
           FROM Restaurant 
+          Inner Join Category
+          On Restaurant.id_Category = Category.id
         ');
         $stmt->execute();
         if ($restaurants = $stmt->fetchAll()) {
