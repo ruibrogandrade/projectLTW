@@ -43,7 +43,7 @@
             <?php
 
             if(isset($_SESSION['username']) and $_SESSION['isOwner']) {
-                echo '<li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Restaurants</a> </li>';
+                echo '<li><a href="myrestaurants.php" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Restaurants</a> </li>';
             }
             else {
                 echo '<li><a href="#" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Orders</a> </li>';
@@ -103,8 +103,6 @@
         const txts = document.querySelector(".slider").children;
         let index = 0;
         const restaurants = ["#starbucks", "#mc", "#pizza", "#sushi", "#kfc"];
-        
-      
     
         function animateText(){
             if(index==0){

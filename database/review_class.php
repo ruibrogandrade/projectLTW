@@ -61,19 +61,5 @@ class User {
       $stmt->execute(array($id));
   }
 
-  public static function editUser($pdo,int $id, bool $isOwner, string $username, string $password, string $address, int $phoneNumber) {
-        $password = hash('sha256', $password);
-        $sql = 'UPDATE User SET isOwner = :isOwner, username = :username, password = :password, address = :address, phoneNumber = :phoneNumber WHERE id = ?';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':isOwner', $isOwner);
-        $stmt->bindValue(':username', $username);
-        $stmt->bindValue(':password', $password);
-        $stmt->bindValue(':address', $address);
-        $stmt->bindValue(':phoneNumber', $phoneNumber);
-        $stmt->execute(array($id));
-
-        return $pdo->lastInsertId();
-}
-
 }
 ?>

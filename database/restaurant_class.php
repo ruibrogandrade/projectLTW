@@ -52,5 +52,30 @@ class Restaurant {
       var_dump($restaurant);
       exit(0); 
     }
+
+    public static function getRestaurantWithOwner(PDO $db, int $id_owner){
+      $stmt = $db->prepare('
+
+        SELECT  Restaurant.id as id, Restaurant.name as name, address, id_Owner, Category.id as id_Category, Category.name as category_name
+        FROM Restaurant 
+        Inner Join Category
+        On Restaurant.id_Category = Category.id
+        WHERE id_Owner = ?
+
+      ');
+
+      $stmt->execute(array($id_owner));
+  
+      if ($restaurants = $stmt->fetchAll()) {
+        $result = array();
+        foreach($restaurants as $restaurant) {
+          array_push($result, $restaurant);
+        }
+      } else return null;
+    
+      return $result;
+    }
+
+
 }
 ?>
