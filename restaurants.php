@@ -22,7 +22,6 @@
     <h2>Restaurants</h2>
     <section id="restaurants">
       <?php
-
       require_once('database/connection.db.php');
       require_once('database/restaurant_class.php');
       $i = 4;
