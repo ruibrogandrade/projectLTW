@@ -8,7 +8,7 @@
 
     $db = getDatabaseConnection();
 
-    $customer = User::insertUser($db, filter_var($_POST['isOwner'],FILTER_VALIDATE_BOOLEAN), $_POST['username'], $_POST['password'], $_POST['address'], $_POST['phoneNumber']);
+    $user = User::insertUser($db, filter_var($_POST['isOwner'],FILTER_VALIDATE_BOOLEAN), $_POST['username'], $_POST['password'], $_POST['address'], (int)$_POST['phoneNumber']);
 
  
     $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);

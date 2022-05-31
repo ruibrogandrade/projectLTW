@@ -33,11 +33,11 @@ class User {
         $stmt->execute(array(strtolower($username), hash('sha256', $password)));
     
         if ($user = $stmt->fetch()) {
-          return new User((int)$user['id'],(bool)$user['isOwner'],$user['username'],$user['password'],$user['address'],$user['phoneNumber']);
+          return new User((int)$user['id'],(bool)$user['isOwner'],$user['username'],$user['password'],$user['address'],(int)$user['phoneNumber']);
         } else return null;
       }
 
-    public static function insertUser($pdo,bool $isOwner, string $username, string $password, string $address, string $phoneNumber) {
+    public static function insertUser($pdo,bool $isOwner, string $username, string $password, string $address, int $phoneNumber) {
         $password = hash('sha256', $password);
         $sql = 'INSERT INTO User VALUES(NULL,:isOwner,:username,:password,:address,:phoneNumber)';
         $stmt = $pdo->prepare($sql);
@@ -50,5 +50,16 @@ class User {
 
         return $pdo->lastInsertId();
     }
+
+
+    public static function deleteUser(pdo $db, $id) {
+      $stmt = $db->prepare('
+          DELETE from User 
+          where id = ?
+        ');
+  
+      $stmt->execute(array($id));
+  }
+
 }
 ?>
