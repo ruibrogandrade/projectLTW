@@ -42,8 +42,7 @@
             <li><a href="#" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
             <?php
 
-            session_start();
-            if($_SESSION['isOwner']) {
+            if(isset($_SESSION['username']) and $_SESSION['isOwner']) {
                 echo '<li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Restaurants</a> </li>';
             }
             else {

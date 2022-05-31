@@ -10,10 +10,10 @@ class User {
     public string $username;
     public string $password;
     public string $address;
-    public string $phoneNumber;
+    public int $phoneNumber;
 
 
-    public function __construct(int $id, bool $isOwner, string $username, string $password, string $address, string $phoneNumber)
+    public function __construct(int $id, bool $isOwner, string $username, string $password, string $address, int $phoneNumber)
     { 
       $this->id = $id;
       $this->isOwner = $isOwner;
