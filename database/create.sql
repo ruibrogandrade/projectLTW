@@ -62,7 +62,7 @@ CREATE TABLE Review (
 CREATE TABLE Dish (
   id                INTEGER PRIMARY KEY,
   name  	          STRING,
-  price             INTEGER,
+  price             FLOAT,
   id_category       INTEGER References Category(id),
   id_restaurant     INTEGER References Restaurant(id)
 );
