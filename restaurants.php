@@ -37,7 +37,7 @@
           '<img src="https://picsum.photos/200?id='. $restaurant['id'] .'">' .
           '<a class="restaurant" href="dishes.php?id='. $restaurant['id'] .'">' . $restaurant['name'] . ' </a>
           <p class="info">'.$restaurant['address'].'</p>
-          <p class="info">'. $restaurant['id_category'] .'</p>' . '</div>';
+          <p class="info">'. $restaurant['category_name'] .'</p>' . '</div>';
           $i+=1;
           if ($i == 4) {
             echo '</div>';
