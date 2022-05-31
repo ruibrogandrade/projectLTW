@@ -22,6 +22,10 @@ echo '<li>Utilizador: ' . $_SESSION["username"] . '</li>' .
 '<li>Telemóvel: ' . $_SESSION["phoneNumber"] . '</li>' 
 ?>
 
+<form action="edit_profile.php">
+    <input type="submit" value="edit"/>
+  </form>
+
 <form class="register" action="action_logout.php">
     <input type="submit" value="Log out"></input> 
 </form> 
