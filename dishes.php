@@ -39,7 +39,7 @@
 
     $db = getDatabaseConnection();
 
-    $dishes = Dish::getDishesRestaurant($db, $_GET['id_Owner']);
+    $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
 
 
     $i = 4;

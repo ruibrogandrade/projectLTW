@@ -19,7 +19,8 @@ class Dish {
 
     static function getDishesRestaurant(PDO $db, int $id) : array {
         $stmt = $db->prepare('
-          SELECT id, name, price, id_category FROM Dish JOIN Restaurant USING (id)
+          SELECT id, Dish.name, price, Dish.id_category 
+          FROM Dish JOIN Restaurant USING (id)
           WHERE id_Owner = ?
           GROUP BY id
         ');
@@ -32,7 +33,7 @@ class Dish {
           foreach($dishes as $dish) {
             array_push($result, $dish);
           }
-        } else return null;
+        } else return array();
         return $result;
     }
 
