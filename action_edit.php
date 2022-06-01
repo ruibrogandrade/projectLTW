@@ -8,8 +8,8 @@
 
   $db = getDatabaseConnection();
 
-  User::deleteUser($db, $_SESSION('id'));
+  $user = User::editUser($db,$_SESSION['id'], filter_var($_POST['isOwner'],FILTER_VALIDATE_BOOLEAN), $_POST['username'], $_POST['password'], $_POST['address'], (int)$_POST['phoneNumber']);
 
-  $user = User::insertUser($db, filter_var($_POST['isOwner'],FILTER_VALIDATE_BOOLEAN), $_POST['username'], $_POST['password'], $_POST['address'], (int)$_POST['phoneNumber']);
-
+  session_destroy();
+  header('Location: login.php');
 ?>
