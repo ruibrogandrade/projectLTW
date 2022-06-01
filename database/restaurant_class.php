@@ -36,32 +36,31 @@ class Restaurant {
         return $result;
     }
 
-    public static function getRestaurantWithId(PDO $db, int $id) : ?Restaurant {
+    public static function getRestaurantWithId(PDO $db, int $id) {
       $stmt = $db->prepare('
-        SELECT id, name, address, id_Owner, id_Category
-        FROM Restaurant 
-        WHERE id = ?
+      SELECT  Restaurant.id as id, Restaurant.name as name, address, id_Owner, Category.id as id_Category, Category.name as category_name
+      FROM Restaurant 
+      Inner Join Category
+      On Restaurant.id_Category = Category.id
+      WHERE Restaurant.id = ?
       ');
 
       $stmt->execute(array($id));
   
       if ($restaurant = $stmt->fetch()) {
-        return new Restaurant((int)$restaurant['id'], $restaurant['name'],$restaurant['address'],$restaurant['id_Owner'], $restaurant['id_Category'],);
+        return $restaurant;
       } else return null;
 
-      var_dump($restaurant);
       exit(0); 
     }
 
     public static function getRestaurantWithOwner(PDO $db, int $id_owner){
       $stmt = $db->prepare('
-
         SELECT  Restaurant.id as id, Restaurant.name as name, address, id_Owner, Category.id as id_Category, Category.name as category_name
         FROM Restaurant 
         Inner Join Category
         On Restaurant.id_Category = Category.id
         WHERE id_Owner = ?
-
       ');
 
       $stmt->execute(array($id_owner));
@@ -72,7 +71,6 @@ class Restaurant {
           array_push($result, $restaurant);
         }
       } else return null;
-    
       return $result;
     }
 

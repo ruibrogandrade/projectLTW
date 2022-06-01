@@ -366,3 +366,7 @@ html {
     align-items: normal;
     position: relative;
 }
+
+.restaurant_info input, select{
+    display: none;
+}

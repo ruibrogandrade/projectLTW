@@ -9,22 +9,22 @@
   $db = getDatabaseConnection();
 
   if($_POST['password']) { 
-  $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
-  if ($user) {
-    $_SESSION['id'] = $user->id;
-    $_SESSION['isOwner'] = $user->isOwner;
-    $_SESSION['username'] = $user->username;
-    $_SESSION['address'] = $user->address;
-    $_SESSION['phoneNumber'] = $user->phoneNumber;
+      $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
+      if ($user) {
+        $_SESSION['id'] = $user->id;
+        $_SESSION['isOwner'] = $user->isOwner;
+        $_SESSION['username'] = $user->username;
+        $_SESSION['address'] = $user->address;
+        $_SESSION['phoneNumber'] = $user->phoneNumber;
 
-    header('Location: profile.php');
+        header('Location: profile.php');
+      }
+      else {
+        header('Location: login.php');
+      }
+
   }
   else {
     header('Location: login.php');
   }
-
-}
-else {
-  header('Location: login.php');
-}
 ?>

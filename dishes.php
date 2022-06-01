@@ -23,8 +23,8 @@
             $db = getDatabaseConnection();
 
             $restaurant = Restaurant::getRestaurantWithId($db, $_GET['id']);
-            echo $restaurant->name;
-            var_dump($restaurant->name);
+            echo $restaurant['name'];
+
             exit(0); 
             ?>
     </h2>
