@@ -21,8 +21,7 @@ class Dish {
         $stmt = $db->prepare('
           SELECT id, Dish.name, price, Dish.id_category 
           FROM Dish JOIN Restaurant USING (id)
-          WHERE id_Owner = ?
-          GROUP BY id
+          WHERE id_restaurant = ?;
         ');
         $stmt->execute(array($id));
 

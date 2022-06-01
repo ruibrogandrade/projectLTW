@@ -16,15 +16,13 @@
   </header>
 
   <body>
-    
+      <h1> Restaurant Information </h1>
       <?php
-    
       session_start();
       require_once('database/connection.db.php');
       require_once('database/restaurant_class.php');
+      require_once('database/dish_class.php');
       
-
-
       $db = getDatabaseConnection();
       $restaurant = Restaurant::getRestaurantWithId($db, $_GET['id']);
 
@@ -61,8 +59,6 @@
         <button id="btn">Edit</button>
         <p id="message"> </p>
       </form>
-
-
     <script>
         $(document).ready(function(){
         $("form").submit(function(event){
@@ -103,12 +99,31 @@
                 }
             });
         }
-
-    });
-});
+            });
+        });
 
 
     </script>
+
+    <h1> Dishes </h1>
+    <div id="dishes-div">
+    <?php
+    $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
+
+    foreach($dishes as $dish){
+        echo '<div> <img src="https://picsum.photos/200?id=' . $dish['id'] .'">'
+        . '<p class="info">'.$dish['name'] .'</p>'
+        . '<p class="info">'.$dish['price'] .'€</p> </div>';
+    }
+    ?>
+    
+    
+
+    </div>
+
+
+
+
     </body>
   <footer>
    <span>Restaurants &copy; 2022</span> 
