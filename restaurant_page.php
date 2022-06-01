@@ -111,16 +111,13 @@
     $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
 
     foreach($dishes as $dish){
-        echo '<div> <img src="https://picsum.photos/200?id=' . $dish['id'] .'">'
+        echo '<div id="'.$dish['id'].'"> <img src="https://picsum.photos/200?id=' . $dish['id'] .'">'
         . '<p class="info">'.$dish['name'] .'</p>'
-        . '<p class="info">'.$dish['price'] .'€</p> </div>';
+        . '<p class="info">'.$dish['price'] .'€</p> <button id="'.$dish['id'].'"> Edit </button> </div>';
     }
     ?>
-    
-    
-
     </div>
-
+    <button> Add dish </button>
 
 
 

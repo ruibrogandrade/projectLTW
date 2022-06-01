@@ -43,10 +43,10 @@
             <?php
 
             if(isset($_SESSION['username']) and $_SESSION['isOwner']) {
-                echo '<li><a href="myrestaurants.php" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Restaurants</a> </li>';
+                echo '<li><a href="myrestaurants.php" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Restaurants</a> </li>';
             }
             else {
-                echo '<li><a href="#" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Orders</a> </li>';
+                echo '<li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Orders</a> </li>';
             }
             ?>
         </ul>

@@ -40,46 +40,20 @@
     $db = getDatabaseConnection();
 
     $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
-
-
-    $i = 4;
-
-    foreach($dishes as $dish) {
-      if($i == 4) {
-        echo '<div class = "row">';
-      }
-      echo '<div class = "collumn">';
-      echo '<img src="https://picsum.photos/200?id=' . $dish['id'] .'">'
-        . '<p class="info">Price</p>'
-        . '<p class="info">Category</p>'
-        . '</div>';
-    }
-
-
-   /*   <article>
-        <class="row">
-        <div class="column">
-        <img src="https://picsum.photos/200?1">
-        <p class="info">Price</p>
-        <p class="info">Category</p>
-        </div>
-        <div class="column">
-        <img src="https://picsum.photos/200?2">
-        <p class="info">Price</p>
-        <p class="info">Category</p>
-        </div>
-        <div class="column">
-        <img src="https://picsum.photos/200?3">
-        <p class="info">Price</p>
-        <p class="info">Category</p>
-        </div>
-        </div>
-      </article> */
       ?>
 
-          <img src="https://picsum.photos/200?3">
-          <p class="info">Price</p>
-          <p class="info">Category</p>
+    <h1> Dishes </h1>
+    <div id="dishes-div">
+    <?php
+    $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
+
+    foreach($dishes as $dish){
+        echo '<div> <img src="https://picsum.photos/200?id=' . $dish['id'] .'">'
+        . '<p class="info">'.$dish['name'] .'</p>'
+        . '<p class="info">'.$dish['price'] .'€</p> </div>';
+    }
+    ?>
+    </div>
 </div>
 </div>
 
