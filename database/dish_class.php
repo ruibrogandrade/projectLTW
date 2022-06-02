@@ -53,5 +53,16 @@ class Dish {
         );
     }
 
+    static function getDishNextId(PDO $db){
+        $stmt = $db-> prepare('SELECT max(id)
+        FROM Dish 
+      ');
+      $stmt->execute();
+
+      $dish = $stmt->fetch();
+
+      return $dish['max(id)'] + 1;
+    }
+
 }
 ?>

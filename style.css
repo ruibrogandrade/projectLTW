@@ -381,6 +381,10 @@ html {
     display: none;
 }
 
+.dish_add_p{
+    display: none;
+}
+
 .crop {
     width: 250px;
     height: 150px;
@@ -395,9 +399,4 @@ html {
     width: 300px;
     height: 200px;
     overflow: hidden;
-}
-
-.crop img {
-    width: 230px;
-    height: 150px;
 }

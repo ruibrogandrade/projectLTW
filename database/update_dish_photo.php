@@ -1,8 +1,5 @@
 <?php
     declare(strict_types = 1);
-    
-    print_r($_FILES);
-    print_r($_POST);
 
     if(isset($_FILES['file']['name'])){
         $filename = $_FILES['file']['name']; 
@@ -16,6 +13,8 @@
         }else{
             echo 0;
         }
+    }else{
+        echo 1;
     }
-    
+
 ?>

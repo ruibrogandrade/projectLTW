@@ -74,6 +74,28 @@ class Restaurant {
       return $result;
     }
 
+    public static function getReviewsWithRestaurant(PDO $db, int $id){
+      $stmt = $db->prepare('
+        SELECT  Review.id, classification, comment, answer, id_writer, username
+        FROM Review 
+        Inner Join User
+        On id_writer = User.id
+        WHERE  id_restaurant = ?
+      ');
+
+      $stmt->execute(array($id));
+
+      $reviews = $stmt->fetchAll();
+      $result = array();
+      foreach($reviews as $review) {
+        array_push($result, $review);
+      }
+      
+      return $result;
+
+
+    }
+
 
 }
 ?>

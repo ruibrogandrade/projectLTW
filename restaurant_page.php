@@ -109,7 +109,6 @@
     <div id="dishes-div">
         <?php
             $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
-
             foreach($dishes as $dish){
                 echo '<div id="'.$dish['id'].'"> 
                 <div class = "crop" ><img src="IMAGES/Dishes/'. $dish['id'] .'.jpeg"> </div>'
@@ -126,14 +125,37 @@
                 </form>
                 </div>';
             }
-        ?>
-        </form>
-        </div>
-    </div>
+            echo "</div>";
+    echo "</div>";
     
-    <script>
-        $(document).ready(function(){
-        $(".form_dish").submit(function(event){
+    $dish_count = Dish::getDishNextId($db);
+
+    echo "<h3>Add Dish:</h2>";
+    echo '<div id="'.$dish_count.'"> 
+    <form id="'.$dish_count.'" class="form_dish_add" method="post">
+    <p class="dish_add_p">Photo: <input type="file" id ="dish_image" > </p>
+    <p class="dish_add_p">Name: <input type="text" id="dish_name" placeholder="Dish name"></p>
+    <p class="dish_add_p">Price: <input type="number" step="0.01" min=0 id="dish_price" placeholder="Dish price"></p>
+    <button id="'.$dish_count.'">Add Dish</button>
+    </form>
+    </div>';             
+    ?>
+
+    <h1> Reviews </h1>
+    <div id="reviews-div">
+        <?php
+            $reviews = Restaurant::getReviewsWithRestaurant($db, $_GET['id']);
+
+            foreach($reviews as $review){
+                echo $review['comment'];
+            }
+        
+        ?>
+
+<script>
+    // Edit DISH SCRIPT
+    $(document).ready(function(){
+        $(document).on("submit", ".form_dish", function (event){
             event.preventDefault();
 
         if($(this).find("button").html()=="Edit"){
@@ -194,6 +216,78 @@
                     console.log(response);
                 }
             });
+        }
+        
+    });
+   });
+        // ADD DISH SCRIPT
+        //add cancel button!!
+        $(document).ready(function(){
+        $(document).on("submit", ".form_dish_add", function (event){
+            event.preventDefault();
+
+        if($(this).find("button").html()=="Add Dish"){
+                $(this).find("button").html("Save");
+                $(this).find("p").show();
+
+        }else{ //Button = save
+            $(this).find("button").html("Add Dish");
+            $(this).find("p").hide();
+
+            var id = $(this).attr('id');
+            var name = $(this).find("#dish_name").val();
+            var price = $(this).find("#dish_price").val();
+            var id_restaurant = <?php echo $_GET['id']?>;
+            
+            var fd = new FormData();
+            
+            var files = $(this).find("#dish_image")[0].files;
+            fd.append('file', files[0]);
+            fd.append('id', id);
+            
+            var success = 0;
+
+            $.ajax({
+                url: "database/add_dish.php",
+                method: "post",
+                data: {id: id, name: name, price: price, id_restaurant: id_restaurant},
+                success: function(response){
+                    console.log(response);
+                }
+            });
+            
+            $.ajax({
+                url: "database/update_dish_photo.php",
+                method: "post",
+                data: fd,
+                processData: false, 
+                contentType: false,
+                success: function(response){
+                    console.log(response);
+                    $("#dishes-div").append(
+                        '<div id='+id+'> '
+                        + '<div class= "crop" ><img src="IMAGES/Dishes/'+ id +'.jpeg"> </div>'
+                        + '<p class="info name">'+name+'</p>'
+                        + '<p class="info price">'+price+'€</p>'
+                        +'<form id="'+id+'" class="form_dish" method="post">'
+                        +'<p><input type="file" id ="dish_image" > </p>'
+                        +'<p><input type="text" id="dish_name" placeholder="Dish name"></p>'
+                        +'<p><input type="number" step="0.01" min=0 id="dish_price" placeholder="Dish price"></p>'
+                        +'<button id="'+id+'">Edit</button>'
+                        +'<p id="message"> </p>'
+                        +'</form>'
+                        +'</div>'
+    
+                    );
+                    $(".form_dish_add").find("#dish_name").val("");
+                    $(".form_dish_add").find("#dish_price").val("");
+                    $(".form_dish_add").attr('id', parseInt(id)+1);
+
+                }
+            });
+
+
+
 
 
             
@@ -201,12 +295,16 @@
         
     });
    });
+         
     </script>
 
+    
+    
 
 
+    
+    
 
-    <button> Add dish </button>
 
 
 
@@ -215,4 +313,5 @@
    <span>Restaurants &copy; 2022</span> 
   </footer>
 
-</html>
+
+  </html>
