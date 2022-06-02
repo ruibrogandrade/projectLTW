@@ -117,6 +117,7 @@
                 . '<p class="info price">'.$dish['price'] .'€</p>'
                 .'
                 <form id="'.$dish['id'].'" class="form_dish" method="post">
+                <p><input type="file" id ="dish_image" > </p>
                 <p><input type="text" id="dish_name" placeholder="Dish name"></p>
                 <p><input type="number" step="0.01" min=0 id="dish_price" placeholder="Dish price"></p>
                 
@@ -155,8 +156,15 @@
             var id = $(this).attr('id');
             var name = $(this).find("#dish_name").val();
             var price = $(this).find("#dish_price").val();
-
-
+            
+            var fd = new FormData();
+            
+            var files = $(this).find("#dish_image")[0].files;
+            console.log($(this).find("#dish_image")[0].files);
+            fd.append('file', files[0]);
+            fd.append('id', id);
+            
+            
             $.ajax({
                 url: "database/update_dish.php",
                 method: "post",
@@ -168,6 +176,26 @@
                     console.log(response);
                 }
             });
+            
+            $.ajax({
+                url: "database/update_dish_photo.php",
+                method: "post",
+                data: fd,
+                processData: false, 
+                contentType: false,
+                success: function(response){
+                    if(response==0){
+                        alert("Photo must be .jpeg");
+                    }else if(response!=1){
+                        var timestamp = $.now();
+                        $("#" +id+" img").attr('src', $("#" +id+" img").attr('src') + "?t=" + timestamp);
+                    }
+
+                    console.log(response);
+                }
+            });
+
+
             
         }
         
