@@ -76,7 +76,7 @@ class Restaurant {
 
     public static function getReviewsWithRestaurant(PDO $db, int $id){
       $stmt = $db->prepare('
-        SELECT  Review.id, classification, comment, answer, id_writer, username
+        SELECT  Review.id as id, classification, comment, answer, id_writer, username
         FROM Review 
         Inner Join User
         On id_writer = User.id

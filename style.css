@@ -400,3 +400,9 @@ html {
     height: 200px;
     overflow: hidden;
 }
+
+#reviews-div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}

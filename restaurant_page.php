@@ -147,10 +147,58 @@
             $reviews = Restaurant::getReviewsWithRestaurant($db, $_GET['id']);
 
             foreach($reviews as $review){
-                echo $review['comment'];
+                echo '<div id="'.$review['id'].'">'
+                    . '<p class="info username">@'.$review['username'] .'</p>'
+                    . '<p class="info classificatiom">'.$review['classification'] .'</p>'
+                    . '<p class="info comment">'.$review['comment'] .'</p>';
+
+                if($review['answer']==""){
+                    echo '<form id="'.$review['id'].'" class="form_answer_comment" method="post">
+                    <p><input type="text" id="answer" placeholder="Answer"></p>
+                    <button id="'.$review['id'].'">Publish answer</button>
+                    </form>';
+                }
+                echo '<p class="info answer">'.$review['answer'] .'</p>
+                </div>';
+
+                
             }
         
         ?>
+<script>
+        // ADD Review Answer Script
+        $(document).ready(function(){
+        $(document).on("submit", ".form_answer_comment", function (event){
+            event.preventDefault();
+
+        if($(this).find("#answer").val()!=""){
+
+            $(this).find("button").hide();
+            $(this).find("input").hide();
+
+            var id = $(this).attr('id');
+            var answer = $(this).find("#answer").val();
+
+            
+            $.ajax({
+                url: "database/add_review_answer.php",
+                method: "post",
+                data: {id: id, answer: answer},
+                success: function(response){
+                    console.log(response);
+                    console.log($("#reviews-div").find('#'+id).find(".info").find(".answer"));
+                    $("#reviews-div").find('#'+id).find(".answer").text(answer);
+                }
+            });
+
+        }
+        
+    });
+   });
+         
+
+</script>
+
 
 <script>
     // Edit DISH SCRIPT
@@ -285,12 +333,6 @@
 
                 }
             });
-
-
-
-
-
-            
         }
         
     });
