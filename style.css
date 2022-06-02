@@ -376,3 +376,28 @@ html {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 15px;
 }
+
+#dishes-div input{
+    display: none;
+}
+
+.crop {
+    width: 250px;
+    height: 150px;
+    overflow: hidden;
+}
+.crop img {
+    width: 250px;
+    height: 150px;
+}
+
+.crop2 {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.crop img {
+    width: 230px;
+    height: 150px;
+}

@@ -32,7 +32,7 @@
             echo '<div class="row">';
             }
             echo '<div class="column">' .
-            '<img src="https://picsum.photos/200?id='. $restaurant['id'] .'">' .
+            '<div class = "crop" ><img src="IMAGES/Restaurants/'. $restaurant['id'] .'.jpeg"></div>' .
             '<a class="restaurant" href="restaurant_page.php?id='. $restaurant['id'] .'">' . $restaurant['name'] . ' </a>
             <p class="info">'.$restaurant['address'].'</p>
             <p class="info">'. $restaurant['category_name'] .'</p>' . '</div>';
