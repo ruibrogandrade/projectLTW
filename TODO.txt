@@ -1,0 +1,9 @@
+DONE --> Apenas donos dos restaurantes conseguem editar os seus restaurantes
+(com o url é possivel aceder aos outros restaurantes)
+
+DONE --> Corrigir bug add dishes
+
+
+--> Editar links restaurantes pagina inicial
+--> Slide photos pagina inicial
+

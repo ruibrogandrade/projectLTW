@@ -92,8 +92,27 @@ class Restaurant {
       }
       
       return $result;
+    }
 
+    public static function getOrdersWithRestaurant(PDO $db, int $id){
+      $stmt = $db->prepare('
+        SELECT  Orders.id as id, state, date, id_user, username
+        FROM Orders 
+        Inner Join User
+        On id_user = User.id
+        WHERE  id_restaurant = ?
+        Order by date
+      ');
 
+      $stmt->execute(array($id));
+
+      $orders = $stmt->fetchAll();
+      $result = array();
+      foreach($orders as $order) {
+        array_push($result, $order);
+      }
+      
+      return $result;
     }
 
 

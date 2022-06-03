@@ -14,6 +14,4 @@
       $stmt->execute(array($_POST['name'], $_POST['price'],$_POST['id']));
     }
 
-    
-
 ?>

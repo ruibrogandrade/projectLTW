@@ -22,10 +22,18 @@
       require_once('database/connection.db.php');
       require_once('database/restaurant_class.php');
       require_once('database/dish_class.php');
+
+      
       
       $db = getDatabaseConnection();
+
       $restaurant = Restaurant::getRestaurantWithId($db, $_GET['id']);
 
+      if(!isset($_SESSION['id']) or $_SESSION['id']!= $restaurant['id_Owner']){
+          echo "Bloquear acesso";
+        header("location:register.php");
+    }
+      
 
       if($restaurant!=null){
             echo 
@@ -165,6 +173,56 @@
             }
         
         ?>
+    </div>
+    
+    <h1> Orders </h1>
+    <div id="orders-div">
+    <?php
+            $orders = Restaurant::getOrdersWithRestaurant($db, $_GET['id']);
+
+            foreach($orders as $order){
+                echo '<div id="'.$order['id'].'">'
+                    . '<p class="info username">@'.$order['username'] .'</p>'
+                    . '<p class="info date">'.$order['date'] .'</p>';
+
+                
+                echo '<p><select class="info state" id="'.$order['id'].'" onchange="changeState(this)">';
+                    echo '<option '; if($order['state']=="received") {echo 'selected="selected"';} echo 'value="received">Received</option>';
+                    echo '<option '; if($order['state']=="preparing") {echo 'selected="selected"';} echo 'value="preparing">Preparing</option>';
+                    echo '<option '; if($order['state']=="ready") {echo 'selected="selected"';} echo 'value="ready">Ready</option>';
+                    echo '<option '; if($order['state']=="delivered") {echo 'selected="selected"';} echo 'value="delivered">Delivered</option>';
+                echo '</select></p>
+                </div>';
+                
+                
+            }
+        
+        ?>
+    </div>
+
+<script>
+    function changeState(select){
+        var val = select.value;
+        var id = select.id;
+
+        var fd = new FormData();
+        fd.append('val', val);
+        fd.append('id', id);
+
+        $.ajax({
+            url: "database/edit_order_state.php",
+            method: "post",
+            data: fd,
+            processData: false, 
+            contentType: false,
+            success: function(response){
+                console.log(response);
+            }
+        });
+    }
+</script>
+
+
 <script>
         // ADD Review Answer Script
         $(document).ready(function(){
@@ -179,7 +237,6 @@
             var id = $(this).attr('id');
             var answer = $(this).find("#answer").val();
 
-            
             $.ajax({
                 url: "database/add_review_answer.php",
                 method: "post",
@@ -198,7 +255,6 @@
          
 
 </script>
-
 
 <script>
     // Edit DISH SCRIPT

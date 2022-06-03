@@ -19,9 +19,9 @@ class Dish {
 
     static function getDishesRestaurant(PDO $db, int $id) : array {
         $stmt = $db->prepare('
-          SELECT id, Dish.name, price, Dish.id_category 
-          FROM Dish JOIN Restaurant USING (id)
-          WHERE id_restaurant = ?;
+        SELECT id, Dish.name, price, Dish.id_category 
+        FROM Dish 
+        WHERE id_restaurant = ?
         ');
         $stmt->execute(array($id));
 
