@@ -33,7 +33,8 @@ header h1 a {
     margin-right: auto;
 }
 
-.ProfilePage button, input[type="submit"][value="Log out"], input[type="submit"][value="Register"] {
+.ProfilePage button, input[type="submit"][value="Log out"], input[type="submit"][value="Register"] 
+, input[type="submit"][value="Edit Info"] {
 	border-radius: 20px;
 	border: 1px solid #DF5A17;
 	background-color: #DF5A17;
