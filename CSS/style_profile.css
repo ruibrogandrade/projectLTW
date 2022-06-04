@@ -3,8 +3,6 @@ header h1 a {
     margin-left: 1em;
 }
 
-
-
 .ProfilePage {
 	display: flex;
 	justify-content: center;
@@ -35,7 +33,7 @@ header h1 a {
     margin-right: auto;
 }
 
-.ProfilePage button, input[type="submit"][value="Log out"] {
+.ProfilePage button, input[type="submit"][value="Log out"], input[type="submit"][value="Register"] {
 	border-radius: 20px;
 	border: 1px solid #DF5A17;
 	background-color: #DF5A17;
@@ -89,10 +87,9 @@ input[type="submit"][value="Log out"]:active {
 p{
     margin-left: auto;
     margin-right: auto;
-
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"], input[type="password"], input[type="tel"]{
 	background-color: #EEEEEE;
 	border: none;
 	padding: 12px 15px;
@@ -101,6 +98,9 @@ input[type="text"], input[type="password"]{
     transform: translateX(-1em);
 }
 
-input[type="password"]{
-    margin-bottom: 5em;
+.radio{
+    display: flex;
+    accent-color: #DF5A17;
+    margin-right: 1em;
 }
+
