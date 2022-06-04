@@ -367,6 +367,10 @@ html {
     position: relative;
 }
 
+.ProfilePage form input{
+    margin-top: 2em;
+}
+
 .restaurant_info input, .restaurant_info select{
     display: none;
 }
