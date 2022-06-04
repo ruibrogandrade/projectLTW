@@ -4,10 +4,13 @@ DONE --> Apenas donos dos restaurantes conseguem editar os seus restaurantes
 DONE --> Corrigir bug add dishes
 
 
---> Editar links restaurantes pagina inicial
---> Slide photos pagina inicial
+DONE--> Slide photos pagina inicial
 --> Verificar se existe já um username com o mesmo nome
 --> CSS
+    DONE Pagina inicial
+--> Mobile:
+        DONE Pagina inicial
+
 
 Customers
 -->Search restaurants by (DONEname), dish name, average review score, etc.

@@ -1,0 +1,76 @@
+/* Porto Eats*/
+header h1 a {
+    margin-left: 1em;
+}
+
+
+.ProfilePage {
+	display: flex;
+	justify-content: center;
+
+	flex-direction: column;
+	height: 70vh;
+
+    margin: auto;
+	background-color: #fff;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 500px;
+	max-width: 100%;
+	min-height: 480px;
+}
+
+.ProfilePage li, .ProfilePage h1,  .ProfilePage form{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="submit"][value="Log out"] {
+	border-radius: 20px;
+	border: 1px solid #DF5A17;
+	background-color: #DF5A17;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+    margin-top: 0.5em;
+}
+
+input[type="submit"][value="Log out"]:active {
+	transform: scale(0.95);
+}
+
+input[type="submit"][value="Edit information?"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+    font-weight: 200;
+	outline: inherit;
+}
+
+.ProfilePage ul{
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.ProfilePage img{
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: auto;
+}
+
+.ProfilePage li{
+    font-weight: 200;
+}
+.ProfilePage span{
+    font-weight: 400;
+}

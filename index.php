@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Porto Eats</title>
+    <link rel="stylesheet" href="CSS/style_all.css">
     <link rel="stylesheet" href="CSS/style_index.css">
 </head>
 
@@ -12,7 +14,6 @@
 
         <div class="toggle" onclick="toggleMenu();">
         </div>
-
 
         <ul class="menu">
             <?php
@@ -39,7 +40,6 @@
             ?>
         </ul>
     
-
     </header>
     
     <div class="content">
@@ -116,32 +116,4 @@
 
 </script>
 
-
-<script>
-    function toggleMenu(){
-        const menuToggle = document.querySelector(".toggle");
-        const sidebar = document.querySelector(".sidebar");
-        const menu = document.querySelector(".menu");
-        menuToggle.classList.toggle('active');
-        sidebar.classList.toggle('active');
-        menu.classList.toggle('active');
-
-    }
-</script>
-
-<script>
-    function changeColor(index){
-        var list_elements = document.getElementsByClassName("menu_element");
-        for(var i= 0; i<list_elements.length; i++){
-            if(i!=index){
-                list_elements.item(i).classList.add('grey');
-            }
-        }
-    }
-    function defaultColor(){
-        var list_elements = document.getElementsByClassName("menu_element");
-        for(var i= 0; i<list_elements.length; i++){
-            list_elements.item(i).classList.remove('grey');
-        }
-    }
-</script>
+<script src="javascript/slidebar.js"></script>
