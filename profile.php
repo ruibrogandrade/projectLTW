@@ -23,7 +23,7 @@ echo '<li>Utilizador: ' . $_SESSION["username"] . '</li>' .
 ?>
 
 <form action="edit_profile.php">
-    <input type="submit" value="edit"/>
+    <input type="submit" value="Edit Profile"/>
   </form>
 
 <form class="register" action="action_logout.php">
