@@ -3,28 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Porto Eats</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/style_index.css">
 </head>
 
 <body class="mainpage">
     <div class="sidebar"></div>
     <header>
-        <a href="index.php" class="logo"><img src="IMAGES/logo.png"> </a>
 
         <div class="toggle" onclick="toggleMenu();">
         </div>
 
-        <script>
-            function toggleMenu(){
-                const menuToggle = document.querySelector(".toggle");
-                const sidebar = document.querySelector(".sidebar");
-                const menu = document.querySelector(".menu");
-                menuToggle.classList.toggle('active');
-                sidebar.classList.toggle('active');
-                menu.classList.toggle('active');
-
-            }
-        </script>
 
         <ul class="menu">
             <?php
@@ -51,22 +39,6 @@
             ?>
         </ul>
     
-        <script>
-            function changeColor(index){
-                var list_elements = document.getElementsByClassName("menu_element");
-                for(var i= 0; i<list_elements.length; i++){
-                    if(i!=index){
-                        list_elements.item(i).classList.add('grey');
-                    }
-                }
-            }
-            function defaultColor(){
-                var list_elements = document.getElementsByClassName("menu_element");
-                for(var i= 0; i<list_elements.length; i++){
-                    list_elements.item(i).classList.remove('grey');
-                }
-            }
-        </script>
 
     </header>
     
@@ -88,7 +60,7 @@
                 non augue sit amet cursus. In tortor enim, auctor dictum felis consectetur. </p>
             <a href="restaurants.php" class="restaurant-link">Visit Restaurant </a>
         </div>
-        <img class="foodimage" src="IMAGES/img1.png">
+        <img class="foodimage fadein" src="IMAGES/img0.png">
 
         <ul>
             <li class = "facebook"><a href="https://www.facebook.com" ><img src="IMAGES/facebook.png"></a> </li>
@@ -99,35 +71,77 @@
         <div class="circle"></div>
     </div>
 
-    <script>
-        const txts = document.querySelector(".slider").children;
-        let index = 0;
-        const restaurants = ["#starbucks", "#mc", "#pizza", "#sushi", "#kfc"];
-    
-        function animateText(){
-            if(index==0){
-                txts[txts.length-1].classList.remove("text-in");
-            }else{
-                txts[index-1].classList.remove("text-in");
-            }
-
-            txts[index].classList.add("text-in");
-            var link = document.querySelector(".restaurant-link");
-            link.href = restaurants[index];
-
-
-            setTimeout(animateText,3000);
-            if(index==txts.length-1){
-                index = 0;
-            }
-            else{
-                index++;
-            }
-        }
-
-        window.onload=animateText;
-
-    </script>
+   
 
 </body>
 </html>
+
+<script>
+    const txts = document.querySelector(".slider").children;
+    let index = 0;
+    const restaurants = ["dishes.php?id=2", "dishes.php?id=3", "dishes.php?id=4", "dishes.php?id=6", "dishes.php?id=1"];
+
+    function animateText(){
+        if(index==0){
+            txts[txts.length-1].classList.remove("text-in");
+        }else{
+            txts[index-1].classList.remove("text-in");
+        }
+
+
+        txts[index].classList.add("text-in");
+        var link = document.querySelector(".restaurant-link");
+        link.href = restaurants[index];
+        
+        var image = document.querySelector(".foodimage");
+        image.classList.remove("fadeout");
+        image.src = "IMAGES/img"+index+".png";
+        image.classList.add("fadein");
+
+        setTimeout(function(){
+            image.classList.remove("fadein");
+            image.classList.add("fadeout");
+        }, 2800);
+
+        setTimeout(animateText,3000);
+        if(index==txts.length-1){
+            index = 0;
+        }
+        else{
+            index++;
+        }
+    }
+
+    window.onload=animateText;
+
+</script>
+
+
+<script>
+    function toggleMenu(){
+        const menuToggle = document.querySelector(".toggle");
+        const sidebar = document.querySelector(".sidebar");
+        const menu = document.querySelector(".menu");
+        menuToggle.classList.toggle('active');
+        sidebar.classList.toggle('active');
+        menu.classList.toggle('active');
+
+    }
+</script>
+
+<script>
+    function changeColor(index){
+        var list_elements = document.getElementsByClassName("menu_element");
+        for(var i= 0; i<list_elements.length; i++){
+            if(i!=index){
+                list_elements.item(i).classList.add('grey');
+            }
+        }
+    }
+    function defaultColor(){
+        var list_elements = document.getElementsByClassName("menu_element");
+        for(var i= 0; i<list_elements.length; i++){
+            list_elements.item(i).classList.remove('grey');
+        }
+    }
+</script>

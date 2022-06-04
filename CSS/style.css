@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:500,300');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+    height: 100%;
+}
+
+.mainpage {
+    overflow: hidden;
+}
+
+
+header {
+    padding: 1em;
+    display: flex;
+    align-items: center; /* Alinhamento na vertical*/
+    justify-content: space-between; /*Alinhamento na horizontal*/
+}
+
+a{
+    text-decoration: none; /*remove underline e visited-color from link*/
+    color: #DF5A17;
+}
+
+.logo{
+    margin-left: 3em;
+    margin-top: 0em;
+    padding-top: 0em;
+    transform: scale(70%);
+    z-index: 0;
+
+}
+
+
+.toggle{
+    width: 50px;
+    height: 50px;
+    background: url(../IMAGES/menu.png);
+    background-size: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 9999;
+    margin-right: 4em;
+}
+
+.toggle.active{
+    background: url(../IMAGES/close.png);
+    background-size: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.menu{  
+    list-style-type: none; /*remove dots from list*/
+    z-index: 9999;
+    position: absolute;
+
+    text-align: center;
+
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    top: 15%;
+
+
+    transform: translateX(100%);
+    transition: 0.5s;
+}
+
+.menu a{
+    color: #DF5A17;
+    z-index: 9999;
+    font-size: 3em;
+    font-weight: bold;
+
+    line-height: 80px;
+}
+
+
+.menu_element.grey{
+    color: #e9e9e9;
+}
+
+
+
+.sidebar{
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    padding: 50%;
+    z-index: 1;
+    right: -200%;
+    transition: 0.5s;
+
+}
+
+.sidebar.active{
+    transition: 0.5s;
+    right: 0;
+}
+
+.menu.active{
+    transition: 0.5s;
+    transform: translateX(0%);
+}
+
+
+.text{
+    width: 40em;
+    transform: translateY(-20%);
+}
+
+.content{
+    margin-left: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.foodimage{
+    transform: translate(20%,0);
+}
+
+.content ul {
+    padding-right: 2em;
+    list-style-type: none;
+    line-height: 3em;
+}
+
+.content ul img{
+    transform: scale(70%);
+    filter: invert(1);
+}
+
+.facebook{
+    transform: translate(0.5em);
+}
+
+.text h1{
+    font-size: 3em;
+    line-height: 1em;
+    position: relative;
+    overflow: hidden;
+}
+
+span{
+    font-size: 2em;
+    color: #df5a17;
+    line-height: 0;
+    position: absolute;
+    left: 1.4em;
+    display: none;
+
+}
+
+span.text-in{
+    display: block;
+	animation: textIn .5s ease;
+    transform: translateY(-0.45em);
+}
+span.text-out{
+	animation: textOut .5s ease;
+    transform: translateY(-1em);
+}
+
+@keyframes textIn{
+	0%{
+		transform: translateY(0em);
+	}
+	100%{
+		transform: translateY(-0.45em);
+	}
+}
+@keyframes textOut{
+	0%{
+		transform: translateY(-0.45em);
+	}
+	100%{
+		transform: translateY(-1em);
+
+	}
+}
+
+.text p{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.text a{
+    color: white;
+    background-color:#df5a17;
+    margin-top: 1em;
+    border-top: 1em;
+    padding-right: 0.9em;
+    padding-left: 0.9em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    border-radius: 3em;
+}
+
+.circle{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #df5a17;
+    clip-path: circle(600px at right bottom);
+    z-index: -1;
+}
+
+.loginforms{
+    width: 20em;
+    height: 20em;
+    display: flex;
+    flex-direction: column;
+    background-color: #df5a17;
+    padding: 2em;
+    align-items: center;
+    position: relative;
+}
+
+.loginforms:first-child{
+    padding-top: 3em;
+}
+
+.loginforms input{
+    margin: 0.5em; padding: 0.5em;
+    width: 20em;
+    height: 3em;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+  
+    width: 100%;
+    height: 100vh;
+  }
+
+  .wrapper button[type="submit"] {
+    width: 10em;
+    height: 2.5em;
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+  }
+
+  .loginforms a {
+    position: absolute;
+    bottom: 1em;
+    left: 2.5em;
+    color: white;
+  }
+
+
+.radio{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1em;
+    padding-bottom: 1em;
+}
+
+.searchbar {
+    overflow: hidden;
+    background-color: #df5a17;
+  }
+
+.searchbar input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+}
+  
+h1 a {
+    color: #df5a17;
+}
+
+.column {
+    float: left;
+    width: 20%;
+    padding: 20px;
+  }
+  
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.column a {
+    display: block;
+}
+
+.info p {
+      display: block;
+}
+    
+.radio input[type="radio"]{
+    width:3em;
+}
+
+.register{
+    width: 20em;
+    height: 28em;
+    display: flex;
+    flex-direction: column;
+    background-color: #df5a17;
+    padding: 2em;
+    align-items: center;
+    position: relative;
+}
+
+.register:nth-child(5){
+    padding-top: 3em;
+}
+
+.register input{
+    margin: 0.5em; padding: 0.5em;
+    width: 20em;
+    height: 3em;
+}
+
+.register input[type=submit] {
+    position:relative;
+    top: 3em;
+  }
+
+header h1 a {
+    top: 0.5em;
+    left: 0.5em;
+    color: #df5a17;
+}
+
+.footer {
+    position: absolute;
+    top: auto;
+    bottom: 0em;
+}
+
+html {
+    height: 110%;
+    margin-bottom: 0.01em;
+}
+
+.ProfilePage {
+    list-style: none;
+    margin-left: 40em;
+    color: white;
+    width: 24em;
+    height: 16em;
+    display: flex;
+    flex-direction: column;
+    background-color: #df5a17;
+    padding: 4em;
+    align-items: normal;
+    position: relative;
+}
+
+.restaurant_info input, .restaurant_info select{
+    display: none;
+}
+
+#dishes-div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}
+
+#dishes-div input{
+    display: none;
+}
+
+.dish_add_p{
+    display: none;
+}
+
+.crop {
+    width: 250px;
+    height: 150px;
+    overflow: hidden;
+}
+.crop img {
+    width: 250px;
+    height: 150px;
+}
+
+.crop2 {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+}
+
+#reviews-div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}
+
+#orders-div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}

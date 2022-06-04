@@ -6,4 +6,11 @@ DONE --> Corrigir bug add dishes
 
 --> Editar links restaurantes pagina inicial
 --> Slide photos pagina inicial
+--> Verificar se existe já um username com o mesmo nome
+--> CSS
 
+Customers
+-->Search restaurants by (DONEname), dish name, average review score, etc.
+-->Order dishes from a single restaurant.
+-->Mark restaurants and dishes as favorites.
+-->Review a restaurant they have ordered from (at least score and some text).

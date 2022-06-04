@@ -4,7 +4,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
 body {
     height: 100%;
 }
@@ -39,17 +38,20 @@ a{
 .toggle{
     width: 50px;
     height: 50px;
-    background: url(IMAGES/menu.png);
+    background: url(../IMAGES/menu.png);
     background-size: 30px;
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
     z-index: 9999;
     margin-right: 4em;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-bottom: 2em;
 }
 
 .toggle.active{
-    background: url(IMAGES/close.png);
+    background: url(../IMAGES/close.png);
     background-size: 25px;
     background-position: center;
     background-repeat: no-repeat;
@@ -125,7 +127,33 @@ a{
 }
 
 .foodimage{
-    transform: translate(20%,0);
+    transform: translateX(3em);
+}
+
+.fadein{
+    animation: fadeIn ease 0.5s;
+}
+
+.fadeout{
+    animation: fadeOut ease 0.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
 }
 
 .content ul {
@@ -162,11 +190,11 @@ span{
 
 span.text-in{
     display: block;
-	animation: textIn .5s ease;
+	animation: textIn .8s ease;
     transform: translateY(-0.45em);
 }
 span.text-out{
-	animation: textOut .5s ease;
+	animation: textOut .8s ease;
     transform: translateY(-1em);
 }
 
@@ -214,201 +242,4 @@ span.text-out{
     z-index: -1;
 }
 
-.loginforms{
-    width: 20em;
-    height: 20em;
-    display: flex;
-    flex-direction: column;
-    background-color: #df5a17;
-    padding: 2em;
-    align-items: center;
-    position: relative;
-}
 
-.loginforms:first-child{
-    padding-top: 3em;
-}
-
-.loginforms input{
-    margin: 0.5em; padding: 0.5em;
-    width: 20em;
-    height: 3em;
-}
-
-.wrapper{
-    display: flex;
-    justify-content: center;
-    align-items:center;
-  
-    width: 100%;
-    height: 100vh;
-  }
-
-  .wrapper button[type="submit"] {
-    width: 10em;
-    height: 2.5em;
-    position: absolute;
-    bottom: 1em;
-    right: 1em;
-  }
-
-  .loginforms a {
-    position: absolute;
-    bottom: 1em;
-    left: 2.5em;
-    color: white;
-  }
-
-
-.radio{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 1em;
-    padding-bottom: 1em;
-}
-
-.searchbar {
-    overflow: hidden;
-    background-color: #df5a17;
-  }
-
-.searchbar input[type=text] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
-}
-  
-h1 a {
-    color: #df5a17;
-}
-
-.column {
-    float: left;
-    width: 20%;
-    padding: 20px;
-  }
-  
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-.column a {
-    display: block;
-}
-
-.info p {
-      display: block;
-}
-    
-.radio input[type="radio"]{
-    width:3em;
-}
-
-.register{
-    width: 20em;
-    height: 28em;
-    display: flex;
-    flex-direction: column;
-    background-color: #df5a17;
-    padding: 2em;
-    align-items: center;
-    position: relative;
-}
-
-.register:nth-child(5){
-    padding-top: 3em;
-}
-
-.register input{
-    margin: 0.5em; padding: 0.5em;
-    width: 20em;
-    height: 3em;
-}
-
-.register input[type=submit] {
-    position:relative;
-    top: 3em;
-  }
-
-header h1 a {
-    top: 0.5em;
-    left: 0.5em;
-    color: #df5a17;
-}
-
-.footer {
-    position: absolute;
-    top: auto;
-    bottom: 0em;
-}
-
-html {
-    height: 110%;
-    margin-bottom: 0.01em;
-}
-
-.ProfilePage {
-    list-style: none;
-    margin-left: 40em;
-    color: white;
-    width: 24em;
-    height: 16em;
-    display: flex;
-    flex-direction: column;
-    background-color: #df5a17;
-    padding: 4em;
-    align-items: normal;
-    position: relative;
-}
-
-.restaurant_info input, .restaurant_info select{
-    display: none;
-}
-
-#dishes-div{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
-}
-
-#dishes-div input{
-    display: none;
-}
-
-.dish_add_p{
-    display: none;
-}
-
-.crop {
-    width: 250px;
-    height: 150px;
-    overflow: hidden;
-}
-.crop img {
-    width: 250px;
-    height: 150px;
-}
-
-.crop2 {
-    width: 300px;
-    height: 200px;
-    overflow: hidden;
-}
-
-#reviews-div{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
-}
-
-#orders-div{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
-}
