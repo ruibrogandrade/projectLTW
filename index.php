@@ -101,7 +101,7 @@
         setTimeout(function(){
             image.classList.remove("fadein");
             image.classList.add("fadeout");
-        }, 2800);
+        }, 2550);
 
         setTimeout(animateText,3000);
         if(index==txts.length-1){
