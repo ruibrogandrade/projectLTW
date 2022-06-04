@@ -4,21 +4,49 @@
   <head>
     <title>Porto Eats</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="CSS/style_dishes.css">
+    <link rel="stylesheet" href="CSS/style_all.css">
+    <link rel="stylesheet" href="CSS/style_restaurants.css">
   </head>
-  <body>
-    <header>
+  <body  class="mainpage">
+  <header>
 
-      <div id="header-fixed">
         <h1><a href="/">Porto Eats</a></h1>
         
+        <div class="sidebar"></div>
+    
         <div class="toggle" onclick="toggleMenu();">
         </div>
-      </div>
+
+        <a href="#" class="cart"> <i class="fas fa-shopping-cart" onclick=""></i>
+        <span>0</span>
+        </a>
+      
+        <ul class="menu">
+            <?php
+
+            session_start();
+
+            if(isset($_SESSION['username']))
+            echo '<li><a href="profile.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Profile</a> </li>';
+            else {
+            echo  '<li><a href="login.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()">Login / Register</a> </li>';
+            }
+            ?>
 
 
-      <div class="cart">
-      </div>
+            <li><a href="restaurants.php" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Restaurants</a> </li>
+            <li><a href="#" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
+            <?php
+
+
+            if(isset($_SESSION['username']) and $_SESSION['isOwner']) {
+                echo '<li><a href="myrestaurants.php" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Restaurants</a> </li>';
+            }
+            else {
+                echo '<li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Orders</a> </li>';
+            }
+            ?>
+        </ul>
 
     </header>
 
@@ -26,7 +54,6 @@
 
 
     <?php
-    session_start();
 
     require_once('database/connection.db.php');
     require_once('database/dish_class.php');
@@ -100,3 +127,7 @@
     <footer> Dishes &copy; 2022 </footer>
   </body>
 </html>
+
+<script src="javascript/search.js"></script>
+<script src="javascript/slidebar.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>

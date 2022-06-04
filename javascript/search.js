@@ -12,3 +12,21 @@ function search_restaurant() {
         }
     }
 }
+
+function search_category(categorie){
+    console.log(categorie);
+    let x = document.getElementsByClassName('info-categorie');
+
+
+    for (i = 0; i < x.length; i++) { 
+        if (x[i].innerHTML!=categorie && categorie!="all") {
+
+            x[i].parentNode.style.display="none";
+        }
+        else {
+            x[i].parentNode.style.display="initial";                 
+        }
+    }
+
+
+}

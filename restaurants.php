@@ -17,9 +17,6 @@
         <div class="toggle" onclick="toggleMenu();">
         </div>
 
-        <a href="#" class="cart"> <i class="fas fa-shopping-cart" onclick=""></i>
-        <span>0</span>
-        </a>
       
         <ul class="menu">
             <?php
@@ -63,26 +60,26 @@
       <section id="category">
         <div class="heading">
             <h2>Category</h2>
-            <span>All</span>
+            <span onclick="search_category('all')">All</span>
         </div>
         <div class="category-container">
-            <a href="#" class="category-box">
+            <a onclick="search_category('Fast Food')" class="category-box">
                 <img src="IMAGES/fast-food.png">
                 <span>Fast Food</span>
             </a>
-            <a href="#" class="category-box">
+            <a onclick="search_category('Coffe')" class="category-box">
                 <img src="images/coffee-cup.png">
                 <span>Coffe</span>
             </a>
-            <a href="#" class="category-box">
+            <a onclick="search_category('Japanese Food')" class="category-box">
                 <img src="images/japanese.png">
                 <span>Japanese Food</span>
             </a>
-            <a href="#" class="category-box">
+            <a onclick="search_category('Ice Cream')" class="category-box">
                 <img src="images/ice-cream.png">
                 <span>Ice Cream</span>
             </a>
-            <a href="#" class="category-box">
+            <a onclick="search_category('Brazilian Food')" class="category-box">
                 <img src="images/brazil.png">
                 <span>Brazilian Food</span>
             </a>
@@ -104,10 +101,10 @@
       $restaurants = Restaurant::getRestaurants($db);
 
       foreach ($restaurants as $restaurant) {
-          echo '<div class="rest"><div class = "crop" ><img src="IMAGES/Restaurants/'. $restaurant['id'] .'.jpeg"> </div>'.
+          echo '<div class="rest"><div class = "crop" ><a href="dishes.php?id='. $restaurant['id'] .'"> <img src="IMAGES/Restaurants/'. $restaurant['id'] .'.jpeg"></a> </div>'.
           '<a class="restaurant" href="dishes.php?id='. $restaurant['id'] .'">' . $restaurant['name'] . ' </a>
-          <p class="info">'.$restaurant['address'].'</p>
-          <p class="info">'. $restaurant['category_name'] .'</p>
+          <p class="info-address">'.$restaurant['address'].'</p>
+          <p class="info-categorie">'. $restaurant['category_name'] .'</p>
           </div>';
       }
       ?>
@@ -119,4 +116,3 @@
 
 <script src="javascript/search.js"></script>
 <script src="javascript/slidebar.js"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>

@@ -68,6 +68,22 @@ header h1 a {
 
 }
 
+@media(max-width: 690px){
+    #search-bar-text{
+        max-width: 200px;
+    }
+    #search-bar-text p{
+        display: none;
+    }
+    #search-bar-text h1{
+        font-size: medium;
+        margin-bottom: 30px;
+        
+    }
+
+    
+}
+
 #searchbar{
     height: 50px;
     display: flex;
@@ -179,4 +195,5 @@ header h1 a {
     transform: scale(1.1);
     transition: all ease 0.1s;
 }
+
 
