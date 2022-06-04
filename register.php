@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Register Page</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/style_all.css">
+    <link rel="stylesheet" href="CSS/style_profile.css">
 </head>
 <body>
 <header>
@@ -23,7 +24,6 @@
         <input type="tel" name="phoneNumber" placeholder="phone number">
         <input type="submit" value="Register"></input> 
       </form> 
-      <div class="circle"></div>
       </div>
 </body>
 </html>

@@ -4,6 +4,7 @@ header h1 a {
 }
 
 
+
 .ProfilePage {
 	display: flex;
 	justify-content: center;
@@ -23,12 +24,18 @@ header h1 a {
 	min-height: 480px;
 }
 
-.ProfilePage li, .ProfilePage h1,  .ProfilePage form{
+.ProfilePage form{
+    display: flex;
+    flex-direction: column;
+	justify-content: center;
+}
+
+.ProfilePage li, .ProfilePage h1,  .ProfilePage form, .ProfilePage input{
     margin-left: auto;
     margin-right: auto;
 }
 
-input[type="submit"][value="Log out"] {
+.ProfilePage button, input[type="submit"][value="Log out"] {
 	border-radius: 20px;
 	border: 1px solid #DF5A17;
 	background-color: #DF5A17;
@@ -40,13 +47,14 @@ input[type="submit"][value="Log out"] {
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
     margin-top: 0.5em;
+    cursor: pointer;
 }
 
 input[type="submit"][value="Log out"]:active {
 	transform: scale(0.95);
 }
 
-input[type="submit"][value="Edit information?"] {
+.ProfilePage a, input[type="submit"][value="Edit information?"] {
 	background: none;
 	color: inherit;
 	border: none;
@@ -54,6 +62,7 @@ input[type="submit"][value="Edit information?"] {
 	font: inherit;
     font-weight: 200;
 	outline: inherit;
+    cursor: pointer;
 }
 
 .ProfilePage ul{
@@ -70,7 +79,28 @@ input[type="submit"][value="Edit information?"] {
 
 .ProfilePage li{
     font-weight: 200;
+    line-height: 2em;
 }
 .ProfilePage span{
     font-weight: 400;
+}
+
+
+p{
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+input[type="text"], input[type="password"]{
+	background-color: #EEEEEE;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+    transform: translateX(-1em);
+}
+
+input[type="password"]{
+    margin-bottom: 5em;
 }
