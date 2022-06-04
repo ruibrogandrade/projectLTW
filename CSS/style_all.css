@@ -4,6 +4,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.mainpage {
+    overflow-x: hidden;
+}
+
 body {
     height: 100%;
 }

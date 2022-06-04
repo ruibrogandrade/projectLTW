@@ -4,51 +4,119 @@
 <head>
   <title>Porto Eats</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/style_all.css">
+  <link rel="stylesheet" href="CSS/style_restaurants.css">
 </head>
 
-<body>
-  <header>
-    <h1><a href="/">Porto Eats</a></h1>
-    <h1>Restaurants</h1>
+<body class="mainpage">
+    <header>
+        <h1><a href="/">Porto Eats</a></h1>
+        
+        <div class="sidebar"></div>
+    
+        <div class="toggle" onclick="toggleMenu();">
+        </div>
+
+        <a href="#" class="cart"> <i class="fas fa-shopping-cart" onclick=""></i>
+        <span>0</span>
+        </a>
+      
+        <ul class="menu">
+            <?php
+
+            session_start();
+
+            if(isset($_SESSION['username']))
+            echo '<li><a href="profile.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Profile</a> </li>';
+            else {
+            echo  '<li><a href="login.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()">Login / Register</a> </li>';
+            }
+            ?>
+
+
+            <li><a href="restaurants.php" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Restaurants</a> </li>
+            <li><a href="#" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
+            <?php
+
+
+            if(isset($_SESSION['username']) and $_SESSION['isOwner']) {
+                echo '<li><a href="myrestaurants.php" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Restaurants</a> </li>';
+            }
+            else {
+                echo '<li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Orders</a> </li>';
+            }
+            ?>
+        </ul>
+
+    </header>
 
     <div class="searchbar">
-      <input id="searchbar" type="text" onkeyup="search_restaurant()" placeholder="Search...">
-    </div>
+        <img src="IMAGES/food_dark.jpg">
+        <div id="search-bar-text">
+          <h1>Are you hungry? Order a dish!</h1>
+          <p>Search for a restaurant near you. There are plenty of options.</p>
+          <input id="searchbar" type="text" onkeyup="search_restaurant()" placeholder="Search...">
+          
+        </div>
+      </div>
 
-  </header>
+      <section id="category">
+        <div class="heading">
+            <h2>Category</h2>
+            <span>All</span>
+        </div>
+        <div class="category-container">
+            <a href="#" class="category-box">
+                <img src="IMAGES/fast-food.png">
+                <span>Fast Food</span>
+            </a>
+            <a href="#" class="category-box">
+                <img src="images/coffee-cup.png">
+                <span>Coffe</span>
+            </a>
+            <a href="#" class="category-box">
+                <img src="images/japanese.png">
+                <span>Japanese Food</span>
+            </a>
+            <a href="#" class="category-box">
+                <img src="images/ice-cream.png">
+                <span>Ice Cream</span>
+            </a>
+            <a href="#" class="category-box">
+                <img src="images/brazil.png">
+                <span>Brazilian Food</span>
+            </a>
+        </div>
+        
+      </section>
 
-  <body>
-    <h2>Restaurants</h2>
     <section id="restaurants">
+      <div class="heading">
+              <h2>Restaurants</h2>
+      </div>
+
+      <div id="restaurants-container">
       <?php
       require_once('database/connection.db.php');
       require_once('database/restaurant_class.php');
-      $i = 4;
+
       $db = getDatabaseConnection();
       $restaurants = Restaurant::getRestaurants($db);
 
       foreach ($restaurants as $restaurant) {
-        if ($i == 4) {
-          echo '<div class="row">';
-        }
-          echo '<div class="column">' .
-          '<div class = "crop" ><img src="IMAGES/Restaurants/'. $restaurant['id'] .'.jpeg"> </div>'.
+          echo '<div class="rest"><div class = "crop" ><img src="IMAGES/Restaurants/'. $restaurant['id'] .'.jpeg"> </div>'.
           '<a class="restaurant" href="dishes.php?id='. $restaurant['id'] .'">' . $restaurant['name'] . ' </a>
           <p class="info">'.$restaurant['address'].'</p>
-          <p class="info">'. $restaurant['category_name'] .'</p>' . '</div>';
-          $i+=1;
-          if ($i == 4) {
-            echo '</div>';
-            $i = 0;
-          }
+          <p class="info">'. $restaurant['category_name'] .'</p>
+          </div>';
       }
       ?>
+      </div>
     </section>
-    <script src="javascript/search.js"></script>
-    </body>
-  <footer>
-   <span>Restaurants &copy; 2022</span> 
-  </footer>
+    
 </body>
 </html>
+
+<script src="javascript/search.js"></script>
+<script src="javascript/slidebar.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>

@@ -14,6 +14,8 @@ DONE--> Slide photos pagina inicial
 
 Customers
 -->Search restaurants by (DONEname), dish name, average review score, etc.
+--> Category search working
+--> Restaurants page working in mobile
 -->Order dishes from a single restaurant.
 -->Mark restaurants and dishes as favorites.
 -->Review a restaurant they have ordered from (at least score and some text).

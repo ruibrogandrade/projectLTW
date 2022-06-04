@@ -66,6 +66,7 @@
                 <input type="submit" value="Edit Info"></input>' 
             ?>
         </form> 
+
     
     </div>
 </body>
