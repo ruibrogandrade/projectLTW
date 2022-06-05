@@ -17,9 +17,45 @@
         <div class="toggle" onclick="toggleMenu();">
         </div>
 
-        <a href="#" class="cart"> <i class="fas fa-shopping-cart" onclick=""></i>
+        <a onclick="toggleCart()" class="cart-icon"> <i class="fas fa-shopping-cart" "></i>
         <span>0</span>
         </a>
+        <div class="cart">
+            <h2>Your Cart</h2>
+            <div class="cart-content">
+                <div class="cart-box">
+                    <img src="IMAGES/Dishes/0.jpeg" alt="" class="cart-img">
+                    <div class="detail-box">
+                        <p class="product-title">Big Mac</p>
+                        <p class="product-price">4.5€</p>
+                        <input type="number" value="1" class="product-quantity">
+                    </div>
+                    
+                    <i class="fas fa-trash product-remove"></i>
+                </div>
+
+                <div class="cart-box">
+                    <img src="IMAGES/Dishes/0.jpeg" alt="" class="cart-img">
+                    <div class="detail-box">
+                        <p class="product-title">Big Mac</p>
+                        <p class="product-price">4.5€</p>
+                        <input type="number" value="1" class="product-quantity">
+                    </div>
+                    
+                    <i class="fas fa-trash product-remove"></i>
+                </div>
+
+                <div class="cart-total">
+                  <h3>Total: </h3>
+                  <p class="total-price">0€</p>
+                </div>
+
+                <button class="cart-btn cart-check-out"> Check out</button>
+
+                <img src="IMAGES/close.png" class ="cart-close-btn" onclick="toggleCart()" alt="">
+            </div>
+
+        </div>
       
         <ul class="menu">
             <?php
@@ -196,3 +232,4 @@
 
   }
 </script>
+<script src="javascript/cart.js"></script>
