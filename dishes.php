@@ -57,18 +57,16 @@
         <div class="search-bar-text search-dish">
           <h1>Search your favourite dishes</h1>
           <p> You can search by:
-              <div class="radio">
-              <input type = "radio" name="name" id="name" value="true">
-              <label for="name">Name</label>
+              <div class="search-dish-radio">
+                <input type = "radio" name="dish-radio" id="name" value="true">
+                <label for="name">Name</label>
 
-              <input type = "radio" name="name" id="price" value="false">
-              <label for="price">Price</label>
+                <input type = "radio" name="dish-radio" id="price" value="false">
+                <label for="price">Max price</label>
 
-              <input type = "radio" name="name" id="favorites" value="false">
-              <label for="favorites">Favorites</label>
-          </div>
+              </div>
           </p>
-          <input id="searchbar" type="text" onkeyup="search_restaurant()" placeholder="Search...">
+          <input id="searchbar" type="text" onkeyup="search_dishes()" placeholder="Search...">
           
         </div>
     </div>
@@ -95,7 +93,7 @@
               echo '<div class="dish-box">
                         <div class = "crop-dish" ><img src="IMAGES/Dishes/'. $dish['id'] .'.jpeg"> </div>
 
-                        <p class="info">'.$dish['name'] .'</p>
+                        <p class="info-dish-name">'.$dish['name'] .'</p>
                         <p class="info-dish-price">'.$dish['price'] .'€</p> 
                         <a id='.$dish['id'].'  class="cart-btn">
                             <i class="fas fa-cart-plus"></i></i> <p>Add Cart</p>

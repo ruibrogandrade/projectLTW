@@ -304,9 +304,8 @@ header h1 a {
     top: 50%;
 }
 
-.radio{
+.radio, .search-dish-radio{
     display: flex;
     accent-color: #DF5A17;
     margin-right: 1em;
 }
-.radio

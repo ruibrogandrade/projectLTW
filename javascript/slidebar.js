@@ -1,14 +1,15 @@
-var i = 0;
+var contador = 0;
 
 function toggleMenu(){
-    i += 1;
+    contador += 1;
     const menuToggle = document.querySelector(".toggle");
     const sidebar = document.querySelector(".sidebar");
     const menu = document.querySelector(".menu");
     menuToggle.classList.toggle('active');
     sidebar.classList.toggle('active');
     menu.classList.toggle('active');
-    if(i>=2){
+
+    if(contador>=2){
         menu.classList.toggle('animation');
     }
 }
