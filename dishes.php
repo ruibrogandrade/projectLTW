@@ -139,40 +139,35 @@
                 }
             
             ?>
+            <!--Write Review-->
+            <div class="review">
+              <form id="feedback" action="">
+                    <p>Leave your comment...</p>
+                    <div class="star-rating">
+                        <input type="radio" onchange="star(1)" name="rate" id="star1">
+                        <label for="star1"> <i class="fas fa-star"></i></i></label>
+                        <input type="radio" onchange="star(2)" name="rate" id="star2">
+                        <label for="star2"> <i class="fas fa-star"></i></label>
+                        <input type="radio" onchange="star(3)" name="rate" id="star3">
+                        <label for="star3"> <i class="fas fa-star"></i></label>
+                        <input type="radio" onchange="star(4)"  name="rate" id="star4">
+                        <label for="star4"><i class="fas fa-star"></i> </label>
+                        <input type="radio" onchange="star(5)"  name="rate" id="star5">
+                        <label for="star5"><i class="fas fa-star"></i> </label>
+                        
+                    </div>
+                    </input>
+                    <p><textarea class="text-box" rows="5"></textarea></p>
+                    <p><button type="submit" class="btn">Submit</button></p>
+              </form>
+            </div>
+
         </div>
     </section>
 
 
-    <!--Write Review-->
-    <form id="feedback" action="">
-    <div class="pinfo">Restaurant Rating</div>
-    <div class="form-group">
-      <div class="col-md-4 inputGroupContainer">
-      <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-heart"></i></span>
-      <select class="form-control" id="rate">
-          <option value="1star">1</option>
-          <option value="2stars">2</option>
-          <option value="3stars">3</option>
-          <option value="4stars">4</option>
-          <option value="5stars">5</option>
-        </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="pinfo">Write your feedback.</div>
-    <div class="form-group">
-      <div class="col-md-4 inputGroupContainer">
-      <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-      <textarea class="form-control" id="review" rows="3"></textarea>
     
-        </div>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+  
       </article>
     </main>
 
@@ -183,3 +178,21 @@
 <script src="javascript/search.js"></script>
 <script src="javascript/slidebar.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+<script>
+  function star(id){
+    var inputs = document.getElementsByClassName('star-rating')[0].getElementsByTagName('input');
+    console.log(inputs);
+    console.log(inputs.length);
+
+    for(let a = 0; a<inputs.length; a++){
+      console.log(a);
+
+      if(a<id){
+        document.getElementsByClassName('star-rating')[0].getElementsByTagName('label')[a].classList.add('colored');
+      }else{
+        document.getElementsByClassName('star-rating')[0].getElementsByTagName('label')[a].classList.remove('colored');
+      }
+    }
+
+  }
+</script>

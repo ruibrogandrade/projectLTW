@@ -363,3 +363,54 @@ header h1 a {
     font-size: 1rem;
     font-weight: 600;
 }
+
+.review button{
+    color: #fff;
+    font-weight: 300;
+    background-color: #DF5A17;
+    border-color: #DF5A17;
+    border: 1px solid transparent;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.2rem;
+    transition: all ease 0.3s;
+}
+
+.review button:hover{
+    background-color: #b04712;
+    transition: all ease 0.3s;
+}
+
+.review .text-box{
+    border: 1px solid #ad9f9f;
+    width: 80%;
+    height: auto;
+    border-radius: 0.2rem;
+}
+
+.star-rating input{
+    display: none;
+}
+
+.star-rating label{
+    cursor: pointer;
+    width: 50px;
+}
+
+.star-rating label {
+    cursor: pointer;
+    width: 50px;
+    color: grey;
+}
+
+.star-rating label{
+    cursor: pointer;
+    width: 50px;
+    color: grey;
+}
+
+.star-rating .colored{
+    color: black;
+}
+
+
+
