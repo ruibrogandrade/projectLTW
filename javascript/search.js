@@ -39,6 +39,7 @@ function search_dishes(){
 
     var radios = document.getElementsByName('dish-radio');
     if(radios[0].checked){
+        /*NAME*/
         x = document.getElementsByClassName('info-dish-name');
 
         for (i = 0; i < x.length; i++) { 
@@ -50,6 +51,7 @@ function search_dishes(){
             }
         }
     }else if(radios[1].checked){
+        /*Max price*/
         x = document.getElementsByClassName('info-dish-price');
 
         for (i = 0; i < x.length; i++) { 
@@ -64,14 +66,6 @@ function search_dishes(){
             }
         }
 
-    }else{
-
     }
-
-    
-
-
-
-    
     
 }

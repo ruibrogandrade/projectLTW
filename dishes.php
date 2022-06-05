@@ -78,6 +78,8 @@
 
     require_once('database/connection.db.php');
     require_once('database/dish_class.php');
+    require_once('database/restaurant_class.php');
+
 
     $db = getDatabaseConnection();
 
@@ -109,44 +111,68 @@
         </div>
     </section>
 
-<!--Write Review-->
-<form id="feedback" action="">
+    <section id="reviews">
+        <div class="heading">
+                <h2>What people are talking about us?</h2>
+        </div>
+        <div id="reviews-container">
+            <?php
+                $reviews = Restaurant::getReviewsWithRestaurant($db, $_GET['id']);
 
- <div class="pinfo">Restaurant Rating</div>
-  
+                foreach($reviews as $review){
+                    echo '<div class="review">'
+                        .'<div class="profile">'
+                        .'<img src="Images/Users/'.$review['id_writer'].'.png" >'
+                        .'<div class="profile-text">'
+                              . '<p class="info username">@'.$review['username'] .'</p>'
+                        .'</div>
+                        </div>
+                        <div class="rating">';
 
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-heart"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
+                        for($j=0; $j<$review['classification'];$j++){
+                          echo '<i class="fas fa-star"></i>';
+                        }
+                          
+                       echo '</div>'
+                        . '<p class="info comment">'.$review['comment'] .'</p>'
+                        .'</div>';
+                }
+            
+            ?>
+        </div>
+    </section>
+
+
+    <!--Write Review-->
+    <form id="feedback" action="">
+    <div class="pinfo">Restaurant Rating</div>
+    <div class="form-group">
+      <div class="col-md-4 inputGroupContainer">
+      <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+      <select class="form-control" id="rate">
+          <option value="1star">1</option>
+          <option value="2stars">2</option>
+          <option value="3stars">3</option>
+          <option value="4stars">4</option>
+          <option value="5stars">5</option>
+        </select>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
- <div class="pinfo">Write your feedback.</div>
-  
-
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-  <textarea class="form-control" id="review" rows="3"></textarea>
- 
+    <div class="pinfo">Write your feedback.</div>
+    <div class="form-group">
+      <div class="col-md-4 inputGroupContainer">
+      <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+      <textarea class="form-control" id="review" rows="3"></textarea>
+    
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
- <button type="submit" class="btn btn-primary">Submit</button>
-
-
-</form>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
       </article>
     </main>
 
