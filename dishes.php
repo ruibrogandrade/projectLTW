@@ -51,6 +51,29 @@
     </header>
 
     <main>
+    
+    <div class="searchbar">
+        <div class="image"><img  src="Images/Restaurants/<?php echo $_GET['id'] ?>.jpeg"> </div>
+        <div class="search-bar-text search-dish">
+          <h1>Search your favourite dishes</h1>
+          <p> You can search by:
+              <div class="radio">
+              <input type = "radio" name="name" id="name" value="true">
+              <label for="name">Name</label>
+
+              <input type = "radio" name="name" id="price" value="false">
+              <label for="price">Price</label>
+
+              <input type = "radio" name="name" id="favorites" value="false">
+              <label for="favorites">Favorites</label>
+          </div>
+          </p>
+          <input id="searchbar" type="text" onkeyup="search_restaurant()" placeholder="Search...">
+          
+        </div>
+    </div>
+
+
 
 
     <?php
@@ -62,26 +85,31 @@
 
     ?>
 
-    <h1> Dishes </h1>
-    <div id="dishes-div">
-    
-    
+    <section id="dishes">
 
-    <?php
-    $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
+        <div id="dishes-container">
+          <?php
+          $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
 
-    foreach($dishes as $dish){
-        echo '<div class="dish-box"><div class = "crop" ><img src="IMAGES/Dishes/'. $dish['id'] .'.jpeg"> </div>
-          <div class="dish-info-cart">'
-        . '<div class="dish-info"> <p class="info">'.$dish['name'] .'</p>'
-        . '<p class="info">'.$dish['price'] .'€</p> </div>
-        <button id='.$dish['id'].'>  </button> </div></div>'
-        ;
-    }
-    ?>
-    </div>
-    </div>
-    </div>
+          foreach($dishes as $dish){
+              echo '<div class="dish-box">
+                        <div class = "crop-dish" ><img src="IMAGES/Dishes/'. $dish['id'] .'.jpeg"> </div>
+
+                        <p class="info">'.$dish['name'] .'</p>
+                        <p class="info-dish-price">'.$dish['price'] .'€</p> 
+                        <a id='.$dish['id'].'  class="cart-btn">
+                            <i class="fas fa-cart-plus"></i></i> <p>Add Cart</p>
+                        </a>
+                        <a id='.$dish['id'].' class="like-btn">
+                            <i class="far fa-heart"></i>
+                        </a>
+                         
+                    </div>';
+          }
+          ?>
+
+        </div>
+    </section>
 
 <!--Write Review-->
 <form id="feedback" action="">
