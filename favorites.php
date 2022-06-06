@@ -72,9 +72,6 @@
 
                         <p class="info-dish-name">'.$dish['name'] .'</p>
                         <p class="info-dish-price">'.$dish['price'] .'€</p> 
-                        <a id='.$dish['id'].' class="like-btn">
-                            <i class="far fa-heart"></i>
-                        </a>
                          
                     </div>';
           }

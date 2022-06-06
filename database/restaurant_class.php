@@ -136,6 +136,14 @@ class Restaurant {
       return $result;
     }
 
+    static function getFavouriteRestaurantsIds(PDO $db, int $id){
+      $result = Restaurant::getFavouriteRestaurants($db, $id);
+      $ids = array();
+      foreach($result as $dish) {
+        array_push($ids, $dish['id']);
+      }
+      return $ids;
+    }
 
 
 }

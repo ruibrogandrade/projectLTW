@@ -40,3 +40,46 @@ function favourite(element){
 
     
 }
+
+function favourite_restaurant(element){
+    var icon = element.children[0];
+    var id_rest = element.id;
+    var fd = new FormData();
+    fd.append('id_restaurant', id_rest);
+    fd.append('id_user', ID_USER);
+
+
+    if(icon.getAttribute("data-prefix")=="far"){
+        //Favorite
+        icon.setAttribute("data-prefix", "fas")
+
+        $.ajax({
+            url: "database/add_favourite_restaurant.php",
+            method: "post",
+            data: fd,
+            processData: false, 
+            contentType: false,
+            success: function(response){
+                console.log(response);
+            }
+        });
+
+    }else{
+        //UnFavorite
+        icon.setAttribute("data-prefix", "far")
+
+        $.ajax({
+            url: "database/remove_favourite_restaurant.php",
+            method: "post",
+            data: fd,
+            processData: false, 
+            contentType: false,
+            success: function(response){
+                console.log(response);
+            }
+        });
+    }
+
+
+    
+}

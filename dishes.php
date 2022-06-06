@@ -108,7 +108,7 @@
         <div id="dishes-container">
           <?php
           $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
-          $favourites  = Dish::getFavouriteDishes($db, $_GET['id']);
+          $favourites  = Dish::getFavouriteDishesIds($db, $_SESSION['id']);
 
           foreach($dishes as $dish){
               echo '<div class="dish-box" id="'.$dish['id'].'">
@@ -120,7 +120,14 @@
                             <i class="fas fa-cart-plus"></i></i> <p>Add Cart</p>
                         </a>
                         <a id='.$dish['id'].' class="like-btn" onclick="favourite(this)">
-                            <i class="far fa-heart"></i>
+                        <i class="'; 
+                        if(in_array($dish['id'], $favourites)){
+                          echo 'fas';
+                        } else{
+                          echo 'far';
+                        }
+
+                        echo ' fa-heart"></i></i>
                         </a>
                          
                     </div>';

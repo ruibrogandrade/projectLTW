@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:500,300');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+    text-decoration: none; /*remove underline e visited-color from link*/
+}
+
+
+/*Header*/
+
+#header-fixed{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+/*Porto Eats*/
+header h1 a {
+    top: 0.5em;
+    left: 0.5em;
+    color: #df5a17;
+}
+
+/*Cart button header*/
+.toggle{
+    background: url(../IMAGES/cart.png);
+    margin-right: 3em;
+    background-size: 35px;
+    width: 35px;
+    height: 35px;
+    
+}
+
+.dish-box{
+    margin: 0 auto;
+}
+
+/*Dishes images*/
+.crop {
+    display: flex;
+    justify-content: center;
+}
+
+.crop img {
+    width: auto;
+    max-width: 200px;
+    height: 150px;
+    
+}
+
+#dishes-div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}
+
+/*Cart button each dish*/
+.dish-box button{
+    background: url(../IMAGES/cart2.png);
+    background-size: 35px;
+    width: 35px;
+    height: 35px;
+    border: none; /* Remove borders */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin-left: 3em;
+    
+}
+
+/*Group of dish name, price and cart button*/
+.dish-info-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

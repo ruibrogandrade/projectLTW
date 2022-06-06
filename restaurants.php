@@ -99,12 +99,24 @@
 
       $db = getDatabaseConnection();
       $restaurants = Restaurant::getRestaurants($db);
+      $favourites  = Restaurant::getFavouriteRestaurantsIds($db, $_SESSION['id']);
 
       foreach ($restaurants as $restaurant) {
           echo '<div class="rest"><div class = "crop" ><a href="dishes.php?id='. $restaurant['id'] .'"> <img src="IMAGES/Restaurants/'. $restaurant['id'] .'.jpeg"></a> </div>'.
           '<a class="restaurant" href="dishes.php?id='. $restaurant['id'] .'">' . $restaurant['name'] . ' </a>
           <p class="info-address">'.$restaurant['address'].'</p>
           <p class="info-categorie">'. $restaurant['category_name'] .'</p>
+
+          <a id='.$restaurant['id'].' class="like-btn" onclick="favourite_restaurant(this)">
+                        <i class="'; 
+                        if(in_array($restaurant['id'], $favourites)){
+                          echo 'fas';
+                        } else{
+                          echo 'far';
+                        }
+
+                        echo ' fa-heart"></i></i>
+        </a>
           </div>';
       }
       ?>
@@ -114,6 +126,11 @@
 </body>
 </html>
 
+<script>
+  var ID_USER = <?php echo $_SESSION['id']?>;
+</script>
 <script src="javascript/search.js"></script>
 <script src="javascript/slidebar.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+<script src="javascript/favourite.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
