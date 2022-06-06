@@ -99,15 +99,18 @@
 
       $db = getDatabaseConnection();
       $restaurants = Restaurant::getRestaurants($db);
-      $favourites  = Restaurant::getFavouriteRestaurantsIds($db, $_SESSION['id']);
+      if(isset($_SESSION['id'])){
+        $favourites  = Restaurant::getFavouriteRestaurantsIds($db, $_SESSION['id']);
+      }
+      
 
       foreach ($restaurants as $restaurant) {
           echo '<div class="rest"><div class = "crop" ><a href="dishes.php?id='. $restaurant['id'] .'"> <img src="IMAGES/Restaurants/'. $restaurant['id'] .'.jpeg"></a> </div>'.
           '<a class="restaurant" href="dishes.php?id='. $restaurant['id'] .'">' . $restaurant['name'] . ' </a>
           <p class="info-address">'.$restaurant['address'].'</p>
-          <p class="info-categorie">'. $restaurant['category_name'] .'</p>
-
-          <a id='.$restaurant['id'].' class="like-btn" onclick="favourite_restaurant(this)">
+          <p class="info-categorie">'. $restaurant['category_name'] .'</p>';
+          if(isset($_SESSION['id'])){
+          echo '<a id='.$restaurant['id'].' class="like-btn" onclick="favourite_restaurant(this)">
                         <i class="'; 
                         if(in_array($restaurant['id'], $favourites)){
                           echo 'fas';
@@ -116,8 +119,10 @@
                         }
 
                         echo ' fa-heart"></i></i>
-        </a>
-          </div>';
+            </a>';
+         }
+          echo '</div>';
+
       }
       ?>
       </div>

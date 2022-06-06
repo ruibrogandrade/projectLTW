@@ -17,9 +17,15 @@
         <div class="toggle" onclick="toggleMenu();">
         </div>
 
-        <a onclick="toggleCart()" class="cart-icon"> <i class="fas fa-shopping-cart" "></i>
-        <span>0</span>
-        </a>
+        <?php
+        session_start();
+        if(isset($_SESSION['id'])){
+          echo '<a onclick="toggleCart()" class="cart-icon"> <i class="fas fa-shopping-cart" "></i>
+          <span>0</span>
+          </a>';
+        }
+        ?>
+
         <div class="cart">
             <h2>Your Cart</h2>
             <div class="cart-content">
@@ -42,7 +48,7 @@
         <ul class="menu">
             <?php
 
-            session_start();
+            
 
             if(isset($_SESSION['username']))
             echo '<li><a href="profile.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Profile</a> </li>';
@@ -108,18 +114,23 @@
         <div id="dishes-container">
           <?php
           $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
-          $favourites  = Dish::getFavouriteDishesIds($db, $_SESSION['id']);
 
+          if(isset($_SESSION['id'])){
+            $favourites  = Dish::getFavouriteDishesIds($db, $_SESSION['id']);
+          }
+          
           foreach($dishes as $dish){
               echo '<div class="dish-box" id="'.$dish['id'].'">
                         <div class = "crop-dish" ><img src="IMAGES/Dishes/'. $dish['id'] .'.jpeg"> </div>
 
                         <p class="info-dish-name">'.$dish['name'] .'</p>
-                        <p class="info-dish-price">'.$dish['price'] .'€</p> 
-                        <a id='.$dish['id'].'  class="cart-btn" onclick="addCart(this)">
+                        <p class="info-dish-price">'.$dish['price'] .'€</p>';
+                        if(isset($_SESSION['id'])){
+                        echo '<a id='.$dish['id'].'  class="cart-btn" onclick="addCart(this)">
                             <i class="fas fa-cart-plus"></i></i> <p>Add Cart</p>
-                        </a>
-                        <a id='.$dish['id'].' class="like-btn" onclick="favourite(this)">
+                        </a>';
+                        
+                        echo '<a id='.$dish['id'].' class="like-btn" onclick="favourite(this)">
                         <i class="'; 
                         if(in_array($dish['id'], $favourites)){
                           echo 'fas';
@@ -128,9 +139,10 @@
                         }
 
                         echo ' fa-heart"></i></i>
-                        </a>
+                        </a>';
+                      }
                          
-                    </div>';
+                   echo '</div>';
           }
           ?>
 
@@ -166,7 +178,9 @@
             
             ?>
             <!--Write Review-->
-            <div class="review">
+            <?php 
+            if(isset($_SESSION['id'])){
+            echo '<div class="review">
               <form id="feedback" action="">
                     <p>Leave your comment...</p>
                     <div class="star-rating">
@@ -186,7 +200,9 @@
                     <p><textarea class="text-box" rows="5"></textarea></p>
                     <p><button type="submit" class="btn">Submit</button></p>
               </form>
-            </div>
+            </div>';
+            }
+            ?>
 
         </div>
     </section>

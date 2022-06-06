@@ -55,8 +55,12 @@
     require_once('database/restaurant_class.php');
 
     $db = getDatabaseConnection();
-
+    
+    if(!isset($_SESSION['id'])){
+      header('Location: login.php');
+    }
     ?>
+    
 
     <section id="favourite-dishes" >
         <h1 class="favourite-dishes-heading">
