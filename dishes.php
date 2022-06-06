@@ -131,7 +131,7 @@
 
     <section id="reviews">
         <div class="heading">
-                <h2>What people are talking about us?</h2>
+                <h2>What are people talking about us?</h2>
         </div>
         <div id="reviews-container">
             <?php
@@ -213,5 +213,9 @@
     }
 
   }
+</script>
+<script>
+  var ID_RESTAURANT = <?php echo $_GET['id']?>;
+  var ID_USER = <?php echo $_SESSION['id']?>;
 </script>
 <script src="javascript/cart.js"></script>

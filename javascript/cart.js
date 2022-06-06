@@ -4,6 +4,10 @@ function toggleCart(){
 }
 
 function removeProduct(element){
+    var cartIcon = document.getElementsByClassName('cart-icon')[0];
+    var span = cartIcon.getElementsByTagName('span')[0];
+    span.innerHTML = parseInt(span.innerHTML) - 1;
+
     element.parentNode.remove();
     updateTotal();
 }
@@ -85,11 +89,35 @@ function addCart(element){
     cartbox.innerHTML = cartboxHTML;
     products.append(cartbox);
 
+    var cartIcon = document.getElementsByClassName('cart-icon')[0];
+    var span = cartIcon.getElementsByTagName('span')[0];
+    span.innerHTML = parseInt(span.innerHTML) + 1;
     
     updateTotal();
     const cart = document.querySelector(".cart");
     cart.classList.add('active');
 }
+
+function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+}
+  
+function formatDate(date) {
+return (
+    [
+    date.getFullYear(),
+    padTo2Digits(date.getMonth() + 1),
+    padTo2Digits(date.getDate()),
+    ].join('-') +
+    ' ' +
+    [
+    padTo2Digits(date.getHours()),
+    padTo2Digits(date.getMinutes())
+    ].join(':')
+);
+}
+
+
 
 function checkOut(){
     var products = document.getElementsByClassName("products")[0];
@@ -98,11 +126,36 @@ function checkOut(){
         return;
     }
 
+    var fd = new FormData();
+    fd.append('id_restaurant', ID_RESTAURANT);
+    fd.append('state', state);
+    fd.append('date', date);
+    fd.append('id_user', ID_USER);
+
+    /*
+    $.ajax({
+        url: "database/edit_order_state.php",
+        method: "post",
+        data: fd,
+        processData: false, 
+        contentType: false,
+        success: function(response){
+            console.log(response);
+        }
+    });
+    */
+
     var items = document.getElementsByClassName("cart-box");
     for(var j=0; j<items.length; j++){
         var id = items[j].id;
-        console.log(id);
     }
+
+    var cartIcon = document.getElementsByClassName('cart-icon')[0];
+    var span = cartIcon.getElementsByTagName('span')[0];
+    span.innerHTML = 0;
+
+    /*ELIMINAR ARTIGOS TODOS */
+
 
     alert("order placed" );
 }

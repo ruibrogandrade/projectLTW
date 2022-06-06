@@ -1,12 +1,9 @@
-
-
 --> Verificar se existe já um username com o mesmo nome
 --> Edit info morada nao funciona
+--> Form review nao funciona
+
 --> Mobile
+--> CSS My restaurants
 
 Customers
--->Search restaurants by (DONEname), dish name, average review score, etc.
---> Restaurants page working in mobile
--->Order dishes from a single restaurant.
 -->Mark restaurants and dishes as favorites.
--->Review a restaurant they have ordered from (at least score and some text).
