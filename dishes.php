@@ -218,4 +218,6 @@
   var ID_RESTAURANT = <?php echo $_GET['id']?>;
   var ID_USER = <?php echo $_SESSION['id']?>;
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="javascript/cart.js"></script>
+

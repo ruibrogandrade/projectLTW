@@ -1,5 +1,5 @@
 --> Verificar se existe já um username com o mesmo nome
---> Edit info morada nao funciona
+--> Edit perfil morada nao funciona
 --> Form review nao funciona
 
 --> Mobile

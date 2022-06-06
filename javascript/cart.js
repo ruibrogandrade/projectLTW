@@ -104,11 +104,10 @@ function padTo2Digits(num) {
   
 function formatDate(date) {
 return (
-    [
-    date.getFullYear(),
+    [padTo2Digits(date.getDate()),
     padTo2Digits(date.getMonth() + 1),
-    padTo2Digits(date.getDate()),
-    ].join('-') +
+    date.getFullYear()
+    ].join('/') +
     ' ' +
     [
     padTo2Digits(date.getHours()),
@@ -126,36 +125,46 @@ function checkOut(){
         return;
     }
 
+   
+    var state =  "preparing";
+    var date = formatDate(new Date());
+
     var fd = new FormData();
     fd.append('id_restaurant', ID_RESTAURANT);
     fd.append('state', state);
     fd.append('date', date);
     fd.append('id_user', ID_USER);
+    var dishes = [];
+    
+    var items = document.getElementsByClassName("cart-box");
+    for(var j=0; j<items.length; j++){
+        var id = items[j].id;
+        dishes.push(id);
+        items[j].parentNode.removeChild(items[j]);
+        j--;
+    }
+    
 
-    /*
+    fd.append('dishes', dishes);
+
+    
     $.ajax({
-        url: "database/edit_order_state.php",
+        url: "database/add_order.php",
         method: "post",
         data: fd,
         processData: false, 
         contentType: false,
         success: function(response){
+            updateTotal();
+            /*Update cart-icon span */
+
+            var cartIcon = document.getElementsByClassName('cart-icon')[0];
+            var span = cartIcon.getElementsByTagName('span')[0];
+            span.innerHTML = 0;
+
+            alert("We are preparing your order" );
             console.log(response);
         }
     });
-    */
-
-    var items = document.getElementsByClassName("cart-box");
-    for(var j=0; j<items.length; j++){
-        var id = items[j].id;
-    }
-
-    var cartIcon = document.getElementsByClassName('cart-icon')[0];
-    var span = cartIcon.getElementsByTagName('span')[0];
-    span.innerHTML = 0;
-
-    /*ELIMINAR ARTIGOS TODOS */
-
-
-    alert("order placed" );
+    
 }
