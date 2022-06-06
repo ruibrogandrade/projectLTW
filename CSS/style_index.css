@@ -15,7 +15,7 @@
 }
 
 .foodimage{
-    transform: translateX(3em);
+    margin-right: 5em;
 }
 
 .fadein{
@@ -178,3 +178,8 @@ span.text-out{
     }
 }
 
+@media(min-width: 1560px){
+    .text{
+        transform: scale(130%) translateX(30%);
+    }
+}

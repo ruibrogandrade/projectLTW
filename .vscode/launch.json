@@ -11,6 +11,7 @@
             "request": "launch",
             "port": 9003
         },
+        
         {
             "name": "Launch currently open script",
             "type": "php",

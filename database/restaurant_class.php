@@ -115,6 +115,28 @@ class Restaurant {
       return $result;
     }
 
+    static function getFavouriteRestaurants(PDO $db, int $id){
+      $stmt = $db->prepare('
+          Select *
+          From FavouriteRestaurant FR
+          Inner Join Restaurant R
+          On FR.id_restaurant = R.id
+          Where FR.id_user =  ?;
+      ');
+      $stmt->execute(array($id));
+
+      $dishes = array();
+
+      if ($dishes = $stmt->fetchAll()) {
+          $result = array();
+        foreach($dishes as $dish) {
+          array_push($result, $dish);
+        }
+      } else return array();
+      return $result;
+    }
+
+
 
 }
 ?>

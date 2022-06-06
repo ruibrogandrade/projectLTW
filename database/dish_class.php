@@ -64,5 +64,35 @@ class Dish {
       return $dish['max(id)'] + 1;
     }
 
+    static function getFavouriteDishes(PDO $db, int $id){
+
+      $stmt = $db->prepare('
+          Select *
+          From FavouriteDish FD
+          Inner Join Dish D
+          On FD.id_dish = D.id
+          Where FD.id_user = ?;
+      ');
+      $stmt->execute(array($id));
+
+      $dishes = array();
+
+      if ($dishes = $stmt->fetchAll()) {
+          $result = array();
+        foreach($dishes as $dish) {
+          array_push($result, $dish);
+        }
+      } else return array();
+      return $result;
+    }
+
+    static function getFavouriteDishesIds(PDO $db, int $id){
+      $result = Dish::getFavouriteDishes($db, $id);
+      $ids = array();
+      foreach($result as $dish) {
+        array_push($ids, $dish['id_dish']);
+      }
+      return $ids;
+    }
 }
 ?>

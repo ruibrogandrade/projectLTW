@@ -28,7 +28,7 @@
             ?>
 
             <li><a href="restaurants.php" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Restaurants</a> </li>
-            <li><a href="#" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
+            <li><a href="favorites.php" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
             <?php
 
             if(isset($_SESSION['username']) and $_SESSION['isOwner']) {
@@ -62,11 +62,6 @@
         </div>
         <img class="foodimage fadein" src="IMAGES/img0.png">
 
-        <ul>
-            <li class = "facebook"><a href="https://www.facebook.com" ><img src="IMAGES/facebook.png"></a> </li>
-            <li><a href="https://www.twitter.com"><img src="IMAGES/twitter.png"></a> </li>
-            <li><a href="https://www.instagram.com"><img src="IMAGES/instagram.png"></a> </li>
-        </ul>
 
         <div class="circle"></div>
     </div>

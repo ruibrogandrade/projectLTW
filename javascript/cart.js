@@ -117,7 +117,6 @@ return (
 }
 
 
-
 function checkOut(){
     var products = document.getElementsByClassName("products")[0];
     if(products.children.length==0){

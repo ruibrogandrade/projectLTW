@@ -1,9 +1,10 @@
---> Verificar se existe já um username com o mesmo nome
+--> Verificar se existe já um username com o mesmo nome ao adicionar
 --> Edit perfil morada nao funciona
 --> Form review nao funciona
 
 --> Mobile
 --> CSS My restaurants
 
-Customers
 -->Mark restaurants and dishes as favorites.
+-->My orders
+-->Menu hover error

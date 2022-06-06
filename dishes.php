@@ -53,7 +53,7 @@
 
 
             <li><a href="restaurants.php" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Restaurants</a> </li>
-            <li><a href="#" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
+            <li><a href="favorites.php" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
             <?php
 
 
@@ -108,6 +108,7 @@
         <div id="dishes-container">
           <?php
           $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
+          $favourites  = Dish::getFavouriteDishes($db, $_GET['id']);
 
           foreach($dishes as $dish){
               echo '<div class="dish-box" id="'.$dish['id'].'">
@@ -118,7 +119,7 @@
                         <a id='.$dish['id'].'  class="cart-btn" onclick="addCart(this)">
                             <i class="fas fa-cart-plus"></i></i> <p>Add Cart</p>
                         </a>
-                        <a id='.$dish['id'].' class="like-btn">
+                        <a id='.$dish['id'].' class="like-btn" onclick="favourite(this)">
                             <i class="far fa-heart"></i>
                         </a>
                          
@@ -220,4 +221,5 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="javascript/cart.js"></script>
+<script src="javascript/favourite.js"></script>
 

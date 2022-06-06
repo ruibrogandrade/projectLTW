@@ -95,7 +95,7 @@ header h1 a {
     outline: none;
 }
 
-#category, #restaurants, #dishes
+#category, #restaurants, #dishes, #favourite-dishes
 {
     display: flex;
     flex-direction: column;
@@ -263,7 +263,7 @@ header h1 a {
     font-size: 1.3rem;
 
 }
-#dishes{
+#dishes, #favourite-dishes{
     max-width: 100%;
     justify-content: center;
     align-items: center;
@@ -494,4 +494,16 @@ header h1 a {
     height: 60vh; /* viewport height */
     overflow-y: scroll;
     overflow-x: hidden;
+}
+
+.favourite-dishes-heading{
+    font-size: 2em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+#favourite-dishes{
+    margin-top: 0;
 }
