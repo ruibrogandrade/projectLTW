@@ -503,7 +503,11 @@ header h1 a {
 }
 
 
-
 #favourite-dishes{
     margin-top: 0;
+}
+
+.my-restaurants-heading{
+    margin-left: auto;
+    margin-right: auto;
 }
