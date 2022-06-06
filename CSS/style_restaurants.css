@@ -425,6 +425,7 @@ header h1 a {
     box-shadow: -2px 0 4px #e6e6e6;
     z-index: 9999;
     transition: all ease 0.3s;
+
 }
 
 .cart.active{
@@ -487,4 +488,10 @@ header h1 a {
     top: 4em;
     right: 3em;
     width: 25px;
+}
+
+.products{
+    height: 60vh; /* viewport height */
+    overflow-y: scroll;
+    overflow-x: hidden;
 }

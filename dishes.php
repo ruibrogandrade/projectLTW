@@ -23,34 +23,16 @@
         <div class="cart">
             <h2>Your Cart</h2>
             <div class="cart-content">
-                <div class="cart-box">
-                    <img src="IMAGES/Dishes/0.jpeg" alt="" class="cart-img">
-                    <div class="detail-box">
-                        <p class="product-title">Big Mac</p>
-                        <p class="product-price">4.5€</p>
-                        <input type="number" value="1" class="product-quantity">
-                    </div>
-                    
-                    <i class="fas fa-trash product-remove"></i>
-                </div>
-
-                <div class="cart-box">
-                    <img src="IMAGES/Dishes/0.jpeg" alt="" class="cart-img">
-                    <div class="detail-box">
-                        <p class="product-title">Big Mac</p>
-                        <p class="product-price">4.5€</p>
-                        <input type="number" value="1" class="product-quantity">
-                    </div>
-                    
-                    <i class="fas fa-trash product-remove"></i>
-                </div>
+                <div class="products">
+                </div>    
+                
 
                 <div class="cart-total">
                   <h3>Total: </h3>
                   <p class="total-price">0€</p>
                 </div>
 
-                <button class="cart-btn cart-check-out"> Check out</button>
+                <button onclick="checkOut()" class="cart-btn cart-check-out"> Check out</button>
 
                 <img src="IMAGES/close.png" class ="cart-close-btn" onclick="toggleCart()" alt="">
             </div>
@@ -128,12 +110,12 @@
           $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
 
           foreach($dishes as $dish){
-              echo '<div class="dish-box">
+              echo '<div class="dish-box" id="'.$dish['id'].'">
                         <div class = "crop-dish" ><img src="IMAGES/Dishes/'. $dish['id'] .'.jpeg"> </div>
 
                         <p class="info-dish-name">'.$dish['name'] .'</p>
                         <p class="info-dish-price">'.$dish['price'] .'€</p> 
-                        <a id='.$dish['id'].'  class="cart-btn">
+                        <a id='.$dish['id'].'  class="cart-btn" onclick="addCart(this)">
                             <i class="fas fa-cart-plus"></i></i> <p>Add Cart</p>
                         </a>
                         <a id='.$dish['id'].' class="like-btn">

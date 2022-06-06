@@ -1,20 +1,11 @@
-DONE --> Apenas donos dos restaurantes conseguem editar os seus restaurantes
-(com o url é possivel aceder aos outros restaurantes)
-
-DONE --> Corrigir bug add dishes
 
 
-DONE--> Slide photos pagina inicial
 --> Verificar se existe já um username com o mesmo nome
---> CSS
-    DONE Pagina inicial
---> Mobile:
-        DONE Pagina inicial
-
+--> Edit info morada nao funciona
+--> Mobile
 
 Customers
 -->Search restaurants by (DONEname), dish name, average review score, etc.
---> Category search working
 --> Restaurants page working in mobile
 -->Order dishes from a single restaurant.
 -->Mark restaurants and dishes as favorites.
