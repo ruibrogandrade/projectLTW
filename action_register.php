@@ -12,13 +12,17 @@
 
  
     $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
+
+    //if($_POST['username']) { header('Location: register.php'); echo "user already exists";} 
+
+    //if($query->num_rows !=0 ) {header('Location: register.php'); } //não está a funcionar mas era para corrigir se um user ja registado tentasse registar novamente
+
     if ($user) {
         $_SESSION['id'] = $user->id;
         $_SESSION['isOwner'] = $user->isOwner;
         $_SESSION['username'] = $user->username;
         $_SESSION['address'] = $user->address;
         $_SESSION['phoneNumber'] = $user->phoneNumber;
-
         header('Location: profile.php');
     }
     else {
