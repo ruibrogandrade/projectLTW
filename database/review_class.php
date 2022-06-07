@@ -3,63 +3,39 @@
 
     require_once('debug.php');
 
-class User {
+class Review {
 
-    public int $id;
-    public bool $isOwner;
-    public string $username;
-    public string $password;
-    public string $address;
-    public int $phoneNumber;
+  public int $id;
+  public int $classification;
+  public string $comment;
+  public string $answer;
+  public int $id_writer;
+  public int $id_restaurant;
 
 
-    public function __construct(int $id, bool $isOwner, string $username, string $password, string $address, int $phoneNumber)
+
+
+    public function __construct(int $id,int $classification, string $comment, string $answer, int $id_writer, int $id_restaurant)
     { 
       $this->id = $id;
-      $this->isOwner = $isOwner;
-      $this->username = $username;
-      $this->password = $password;
-      $this->address = $address;
-      $this->phoneNumber = $phoneNumber;
+      $this->classification= $classification;
+      $this->comment = $comment;
+      $this->answer = $answer;
+      $this->id_writer = $id_writer;
+      $this->id_restaurant = $id_restaurant;
     }
 
-    public static function getUserWithPassword(PDO $db, string $username, string $password) : ?User {
-        $stmt = $db->prepare('
-          SELECT id, isOwner, username, password, address, phoneNumber
-          FROM User 
-          WHERE lower(username) = ? AND password = ?
-        ');
-  
-        $stmt->execute(array(strtolower($username), hash('sha256', $password)));
-    
-        if ($user = $stmt->fetch()) {
-          return new User((int)$user['id'],(bool)$user['isOwner'],$user['username'],$user['password'],$user['address'],(int)$user['phoneNumber']);
-        } else return null;
-      }
-
-    public static function insertUser($pdo,bool $isOwner, string $username, string $password, string $address, int $phoneNumber) {
-        $password = hash('sha256', $password);
-        $sql = 'INSERT INTO User VALUES(NULL,:isOwner,:username,:password,:address,:phoneNumber)';
+    public static function insertReview($pdo,int $classification, string $comment, int $id_writer, int $id_restaurant) {
+        $sql = 'INSERT INTO Review VALUES(NULL,:classification,:comment,NULL,:id_writer,:id_restaurant)';
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':isOwner', $isOwner);
-        $stmt->bindValue(':username', $username);
-        $stmt->bindValue(':password', $password);
-        $stmt->bindValue(':address', $address);
-        $stmt->bindValue(':phoneNumber', $phoneNumber);
+        $stmt->bindValue(':classification', $classification);
+        $stmt->bindValue(':comment', $comment);
+        $stmt->bindValue(':id_writer', $id_writer);
+        $stmt->bindValue(':id_restaurant', $id_restaurant);
         $stmt->execute();
 
         return $pdo->lastInsertId();
     }
-
-
-    public static function deleteUser(pdo $db, $id) {
-      $stmt = $db->prepare('
-          DELETE from User 
-          where id = ?
-        ');
-  
-      $stmt->execute(array($id));
-  }
 
 }
 ?>
