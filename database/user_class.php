@@ -68,6 +68,7 @@ class User {
         $stmt->execute(array($isOwner, $username, $password, $address, $phoneNumber ,$id));
 
         return $pdo->lastInsertId();
+
 }
 
 }

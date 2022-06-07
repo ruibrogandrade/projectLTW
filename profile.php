@@ -53,7 +53,7 @@
         <ul>
         <li><span>Utilizador: </span>' . $_SESSION["username"] . '</li>' . 
         '<li><span>Palavra-passe </span>: ************</li>' .
-        '<li><span>Email: </span>' . $_SESSION["address"] . '</li>' .
+        '<li><span>Morada: </span>' . $_SESSION["address"] . '</li>' .
         '<li><span>Telemóvel: </span>' . $_SESSION["phoneNumber"] . '</li>' 
         ?>
         </ul>

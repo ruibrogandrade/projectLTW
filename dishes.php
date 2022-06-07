@@ -19,6 +19,9 @@
 
         <?php
         session_start();
+
+        $_SESSION['id_restaurant'] = $_GET['id'];
+
         if(isset($_SESSION['id'])){
           echo '<a onclick="toggleCart()" class="cart-icon"> <i class="fas fa-shopping-cart" "></i>
           <span>0</span>
@@ -181,23 +184,23 @@
             <?php 
             if(isset($_SESSION['id'])){
             echo '<div class="review">
-              <form id="feedback" action="">
+              <form id="feedback" action="action_insert_review.php" method="post">
                     <p>Leave your comment...</p>
                     <div class="star-rating">
-                        <input type="radio" onchange="star(1)" name="rate" id="star1">
+                        <input type="radio" onchange="star(1)" name="classification" value = "1" id="star1">
                         <label for="star1"> <i class="fas fa-star"></i></i></label>
-                        <input type="radio" onchange="star(2)" name="rate" id="star2">
+                        <input type="radio" onchange="star(2)" name="classification" value = "2"  id="star2">
                         <label for="star2"> <i class="fas fa-star"></i></label>
-                        <input type="radio" onchange="star(3)" name="rate" id="star3">
+                        <input type="radio" onchange="star(3)" name="classification" value = "3" id="star3">
                         <label for="star3"> <i class="fas fa-star"></i></label>
-                        <input type="radio" onchange="star(4)"  name="rate" id="star4">
+                        <input type="radio" onchange="star(4)"  name="classification" value = "4" id="star4">
                         <label for="star4"><i class="fas fa-star"></i> </label>
-                        <input type="radio" onchange="star(5)"  name="rate" id="star5">
+                        <input type="radio" onchange="star(5)"  name="classification" value = "5" id="star5">
                         <label for="star5"><i class="fas fa-star"></i> </label>
                         
                     </div>
                     </input>
-                    <p><textarea class="text-box" rows="5"></textarea></p>
+                    <p><textarea class="text-box" name="comment" rows="5"></textarea></p>
                     <p><button type="submit" class="btn">Submit</button></p>
               </form>
             </div>';
