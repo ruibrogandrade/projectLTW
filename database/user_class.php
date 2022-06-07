@@ -71,8 +71,6 @@ class User {
         $stmt->bindValue(':address', $address);
         $stmt->bindValue(':phoneNumber', $phoneNumber);
         $stmt->execute(array($id));
-
-        return $pdo->lastInsertId();
 }
 
 }
