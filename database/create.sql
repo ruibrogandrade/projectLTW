@@ -74,17 +74,10 @@ CREATE TABLE FavouriteDish (
   PRIMARY KEY(id_user,id_dish)
 );
 
--- Table: Photo
-CREATE TABLE Photo (
-  id                INTEGER PRIMARY KEY,
-  url               STRING,
-  id_dish           INTEGER References Dish(id)
-);
-
 -- Table: Orders
 CREATE TABLE Orders (
   id                INTEGER PRIMARY KEY,
-  state             STRING,
+  state             STRING CHECK(state == 'ready' OR state == 'preparing' OR state == 'received' OR state == 'delivered'),
   date              Date,
   id_restaurant     INTEGER References Restaurant(id),
   id_user           INTEGER References User(id)
