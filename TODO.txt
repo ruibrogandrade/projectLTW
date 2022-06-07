@@ -5,6 +5,5 @@
 --> Mobile
 --> CSS My restaurants
 
--->Mark restaurants and dishes as favorites.
 -->My orders
 -->Menu hover error

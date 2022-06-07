@@ -61,8 +61,8 @@
       $restaurants = Restaurant::getRestaurantWithOwner($db, $_SESSION['id']);
 
       foreach ($restaurants as $restaurant) {
-          echo '<div class="rest"><div class = "crop" ><a href="dishes.php?id='. $restaurant['id'] .'"> <img src="IMAGES/Restaurants/'. $restaurant['id'] .'.jpeg"></a> </div>'.
-          '<a class="restaurant" href="dishes.php?id='. $restaurant['id'] .'">' . $restaurant['name'] . ' </a>
+          echo '<div class="rest"><div class = "crop" ><a href="restaurant_page.php?id='. $restaurant['id'] .'"> <img src="IMAGES/Restaurants/'. $restaurant['id'] .'.jpeg"></a> </div>'.
+          '<a class="restaurant" href="restaurant_page.php?id='. $restaurant['id'] .'">' . $restaurant['name'] . ' </a>
           <p class="info-address">'.$restaurant['address'].'</p>
           <p class="info-categorie">'. $restaurant['category_name'] .'</p>';
           echo '</div>';
