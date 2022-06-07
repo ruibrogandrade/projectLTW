@@ -5,25 +5,62 @@
 <head>
   <title>Porto Eats</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/style_all.css">
+  <link rel="stylesheet" href="CSS/style_restaurants.css">
+  <link rel="stylesheet" href="CSS/style_my_restaurants_dishes.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 
-  <header>
-    <h1><a href="/">Porto Eats</a></h1>
-    <h1>My Restaurants</h1>
-  </header>
 
-  <body>
-      <h1> Restaurant Information </h1>
+<body class="mainpage">
+<header>
+        <h1><a href="/">Porto Eats</a></h1>
+        
+        <div class="sidebar"></div>
+    
+        <div class="toggle" onclick="toggleMenu();">
+        </div>
+
+      
+        <ul class="menu">
+            <?php
+
+            session_start();
+
+            if(isset($_SESSION['username']))
+            echo '<li><a href="profile.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Profile</a> </li>';
+            else {
+            echo  '<li><a href="login.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()">Login / Register</a> </li>';
+            }
+            ?>
+
+
+            <li><a href="restaurants.php" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Restaurants</a> </li>
+            <li><a href="favorites.php" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
+            <?php
+
+
+            if(isset($_SESSION['username']) and $_SESSION['isOwner']) {
+                echo '<li><a href="myrestaurants.php" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Restaurants</a> </li>';
+            }
+            else {
+                echo '<li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Orders</a> </li>';
+            }
+            ?>
+        </ul>
+
+</header>
+    
+    <div class="heading">
+              <h2>Restaurant Information</h2>
+    </div>
+    <div id="my_restaurant_container">
+        
       <?php
-      session_start();
       require_once('database/connection.db.php');
       require_once('database/restaurant_class.php');
       require_once('database/dish_class.php');
-
-      
       
       $db = getDatabaseConnection();
 
@@ -32,13 +69,13 @@
       if(!isset($_SESSION['id']) or $_SESSION['id']!= $restaurant['id_Owner']){
           echo "Bloquear acesso";
         header("location:register.php");
-    }
+        }
       
 
       if($restaurant!=null){
             echo 
             '<div class = "crop" ><img src="IMAGES/Restaurants/'. $restaurant['id'] .'.jpeg"> </div>' .
-            '<div id="profile"> <p id="info-name" >' . $restaurant['name'] . ' </p>
+            '<div id="profile-form"><div id="profile"> <p id="info-name" >' . $restaurant['name'] . ' </p>
             <p id="info-address">'.$restaurant['address'].'</p>
             <p id="info-category">'. $restaurant['category_name'] .'</p> </div>';
         
@@ -64,9 +101,12 @@
             ?>
         </select></p>
 
-        <button id="btn">Edit</button>
+        <button class="btn" id="btn">Edit</button>
         <p id="message"> </p>
       </form>
+      </div>
+
+
     <script>
         $(document).ready(function(){
         $(".restaurant_info").submit(function(event){
@@ -113,12 +153,17 @@
 
     </script>
 
-    <h1> Dishes </h1>
-    <div id="dishes-div">
+    </div>
+
+    <div class="heading">
+              <h2>Dishes</h2>
+    </div>
+    <div id="dishes">
+    <div id="dishes-container">
         <?php
             $dishes = Dish::getDishesRestaurant($db, $_GET['id']);
             foreach($dishes as $dish){
-                echo '<div id="'.$dish['id'].'"> 
+                echo '<div class="dish-box" id="'.$dish['id'].'"> 
                 <div class = "crop" ><img src="IMAGES/Dishes/'. $dish['id'] .'.jpeg"> </div>'
                 . '<p class="info name">'.$dish['name'] .'</p>'
                 . '<p class="info price">'.$dish['price'] .'€</p>'
@@ -128,37 +173,54 @@
                 <p><input type="text" id="dish_name" placeholder="Dish name"></p>
                 <p><input type="number" step="0.01" min=0 id="dish_price" placeholder="Dish price"></p>
                 
-                <button id="'.$dish['id'].'">Edit</button>
+                <button class="btn" id="'.$dish['id'].'">Edit</button>
                 <p id="message"> </p> 
                 </form>
                 </div>';
             }
-            echo "</div>";
-    echo "</div>";
+
     
     $dish_count = Dish::getDishNextId($db);
-
-    echo "<h3>Add Dish:</h2>";
+    
+    echo '<div class="dish-box"';
     echo '<div id="'.$dish_count.'"> 
     <form id="'.$dish_count.'" class="form_dish_add" method="post">
     <p class="dish_add_p">Photo: <input type="file" id ="dish_image" > </p>
     <p class="dish_add_p">Name: <input type="text" id="dish_name" placeholder="Dish name"></p>
     <p class="dish_add_p">Price: <input type="number" step="0.01" min=0 id="dish_price" placeholder="Dish price"></p>
-    <button id="'.$dish_count.'">Add Dish</button>
+    <button class="btn" id="'.$dish_count.'">Add Dish</button>
     </form>
-    </div>';             
+    </div>'; 
+    echo "<div>";         
+    
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
     ?>
 
-    <h1> Reviews </h1>
-    <div id="reviews-div">
+
+    <div id="reviews">
+        <div class="heading">
+                <h2>Reviews</h2>
+        </div>
+        <div id="reviews-container">
         <?php
             $reviews = Restaurant::getReviewsWithRestaurant($db, $_GET['id']);
 
             foreach($reviews as $review){
-                echo '<div id="'.$review['id'].'">'
-                    . '<p class="info username">@'.$review['username'] .'</p>'
-                    . '<p class="info classificatiom">'.$review['classification'] .'</p>'
-                    . '<p class="info comment">'.$review['comment'] .'</p>';
+                echo '<div class="review"> <div id="'.$review['id'].'">
+                    <div class="profile">
+                    <img src="Images/Users/'.$review['id_writer'].'.png" >
+                    <div class="profile-text">
+                    <p class="info username">@'.$review['username'] .'</p>
+                    </div>
+                    </div>
+                    <div class="rating">';
+                    for($j=0; $j<$review['classification'];$j++){
+                        echo '<i class="fas fa-star"></i>';
+                    }
+                    echo '</div>
+                    <p class="info comment">'.$review['comment'] .'</p>';
 
                 if($review['answer']==""){
                     echo '<form id="'.$review['id'].'" class="form_answer_comment" method="post">
@@ -167,12 +229,14 @@
                     </form>';
                 }
                 echo '<p class="info answer">'.$review['answer'] .'</p>
+                </div>
                 </div>';
-
+                
                 
             }
         
         ?>
+        </div>
     </div>
     
     <h1> Orders </h1>
@@ -199,6 +263,8 @@
         
         ?>
     </div>
+
+
 
 <script>
     function changeState(select){
@@ -243,8 +309,8 @@
                 data: {id: id, answer: answer},
                 success: function(response){
                     console.log(response);
-                    console.log($("#reviews-div").find('#'+id).find(".info").find(".answer"));
-                    $("#reviews-div").find('#'+id).find(".answer").text(answer);
+                    console.log($("#reviews").find('#'+id).find(".info").find(".answer"));
+                    $("#reviews").find('#'+id).find(".answer").text(answer);
                 }
             });
 
@@ -413,3 +479,9 @@
 
 
   </html>
+
+<script>
+  var ID_USER = <?php echo $_SESSION['id']?>;
+</script>
+<script src="javascript/slidebar.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
