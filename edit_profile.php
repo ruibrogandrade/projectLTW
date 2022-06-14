@@ -18,13 +18,14 @@
         <ul class="menu">
             <?php
             session_start();
-
+            /*
             if ($_SESSION['csrf'] !== $_POST['csrf']) {
                 echo "<script>";
                 echo "alert('Request does not appear to be legitimate');";
                 echo "window.location = '../profile.php';"; // redirect with javascript, after page loads
                 echo "</script>";
-              }
+               
+              }*/
 
             if(isset($_SESSION['username']))
             echo '<li><a href="profile.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Profile</a> </li>';
