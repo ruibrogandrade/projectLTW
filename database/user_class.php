@@ -65,7 +65,8 @@ class User {
   }
 
   public static function editUser($pdo,int $id, bool $isOwner, string $username, string $password, string $address, int $phoneNumber) {
-        $password = hash('sha256', $password);
+        $options = ['cost' => 12];
+        $password = password_hash($password, PASSWORD_DEFAULT, $options);
         $sql = 'UPDATE User SET isOwner = ?, username = ?, password = ?, address = ?, phoneNumber = ? WHERE id = ?';
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array($isOwner, $username, $password, $address, $phoneNumber ,$id));
