@@ -324,7 +324,7 @@ header h1 a {
     border-bottom: 1px solid #f3f3f3;
 }
 
-#reviews-container{
+#reviews-container, #orders-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
@@ -510,5 +510,22 @@ header h1 a {
 .my-restaurants-heading{
     margin-left: auto;
     margin-right: auto;
+}
+
+#orders{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0px;
+    margin: 40px 0px;
+}
+
+.order{
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border: 1px solid #f1f1f1;
+    box-shadow: 2px 2px 50px rgba(0,0,0,0.05);
+    border-radius: 30px;
 }
 

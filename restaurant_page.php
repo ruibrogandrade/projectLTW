@@ -239,16 +239,24 @@
         </div>
     </div>
     
-    <h1> Orders </h1>
-    <div id="orders-div">
+    <div id="orders">
+        <div class="heading">
+                <h2>Orders</h2>
+        </div>
+        <div id="orders-container">
     <?php
             $orders = Restaurant::getOrdersWithRestaurant($db, $_GET['id']);
 
             foreach($orders as $order){
-                echo '<div id="'.$order['id'].'">'
-                    . '<p class="info username">@'.$order['username'] .'</p>'
-                    . '<p class="info date">'.$order['date'] .'</p>';
+                echo '<div class="order"> <div id="'.$order['id'].'">
+                <div class="profile">
+                    <img src="Images/Users/'.$order['id_user'].'.png" >
+                    <div class="profile-text">
+                    <p class="info username">@'.$order['username'] .'</p>
+                    </div>
+                </div>';
 
+                echo '<p class="info date">'.$order['date'] .'</p>';
                 
                 echo '<p><select class="info state" id="'.$order['id'].'" onchange="changeState(this)">';
                     echo '<option '; if($order['state']=="received") {echo 'selected="selected"';} echo 'value="received">Received</option>';
@@ -256,12 +264,14 @@
                     echo '<option '; if($order['state']=="ready") {echo 'selected="selected"';} echo 'value="ready">Ready</option>';
                     echo '<option '; if($order['state']=="delivered") {echo 'selected="selected"';} echo 'value="delivered">Delivered</option>';
                 echo '</select></p>
+                </div>
                 </div>';
                 
                 
             }
         
         ?>
+        </div>
     </div>
 
 

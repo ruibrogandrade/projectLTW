@@ -8,10 +8,9 @@
 </head>
 
 <body class="mainpage">
+    <div class="sidebar"></div>
     <header>
         <h1><a href="/">Porto Eats</a></h1>
-        
-        <div class="sidebar"></div>
     
         <div class="toggle" onclick="toggleMenu();">
         </div>
