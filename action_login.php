@@ -3,10 +3,8 @@
   require_once('random_token.php');
   session_set_cookie_params(0, '/', '.app.localhost', true, true);
   session_start();
-  if (!isset($_SESSION['csrf'])) {
-    $_SESSION['csrf'] = generate_random_token();
-  }
-  else if ($_SESSION['csrf'] !== $_POST['csrf']) {
+
+  if ($_SESSION['csrf'] !== $_POST['csrf']) {
     echo "<script>";
     echo "alert('Request does not appear to be legitimate');";
     echo "window.location = '../login.php';"; // redirect with javascript, after page loads

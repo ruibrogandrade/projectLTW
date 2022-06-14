@@ -6,7 +6,7 @@
 
     if ($_SESSION['csrf'] !== $_POST['csrf']) {
         echo "<script>";
-        echo "alert('Request does not appear to be legitimate);";
+        echo "alert('Request does not appear to be legitimate');";
         echo "window.location = '../dishes.php';"; // redirect with javascript, after page loads
         echo "</script>";
       }

@@ -19,6 +19,12 @@
             <?php
             session_start();
 
+            require_once('random_token.php');
+
+            if (!isset($_SESSION['csrf'])) {
+                $_SESSION['csrf'] = generate_random_token();
+            }
+
             if(isset($_SESSION['username']))
             echo '<li><a href="profile.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Profile</a> </li>';
             else {
