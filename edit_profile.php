@@ -5,8 +5,10 @@
     <title>Edit Profile Page</title>
     <link rel="stylesheet" href="CSS/style_all.css">
     <link rel="stylesheet" href="CSS/style_profile.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="mainpage">
+<div class="wrapper">
 <header>
         <h1><a href="/">Porto Eats</a></h1>
         
@@ -35,9 +37,7 @@
             if(isset($_SESSION['username']) and $_SESSION['isOwner']) {
                 echo '<li><a href="myrestaurants.php" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Restaurants</a> </li>';
             }
-            else {
-                echo '<li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Orders</a> </li>';
-            }
+
             ?>
         </ul>
 
@@ -70,6 +70,7 @@
     
     </div>
 </body>
+</div>
 </html>
 
 <script src="javascript/slidebar.js"></script>

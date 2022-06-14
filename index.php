@@ -6,63 +6,67 @@
     <title>Porto Eats</title>
     <link rel="stylesheet" href="CSS/style_all.css">
     <link rel="stylesheet" href="CSS/style_index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="mainpage">
-    <div class="sidebar"></div>
-    <header>
+    <div class="wrapper">
+        <div class="sidebar"></div>
+        <header>
 
-        <div class="toggle" onclick="toggleMenu();">
+            <div class="toggle" onclick="toggleMenu();">
+            </div>
+
+            <ul class="menu">
+                <?php
+
+                session_start();
+
+                if(isset($_SESSION['username']))
+                echo '<li><a href="profile.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Profile</a> </li>';
+                else {
+                echo  '<li><a href="login.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()">Login / Register</a> </li>';
+                }
+                ?>
+
+                <li><a href="restaurants.php" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Restaurants</a> </li>
+                <li><a href="favorites.php" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
+                <?php
+
+                if(isset($_SESSION['username']) and $_SESSION['isOwner']) {
+                    echo '<li><a href="myrestaurants.php" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Restaurants</a> </li>';
+                }
+                else {
+                    echo '<li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Orders</a> </li>';
+                }
+                ?>
+            </ul>
+        
+        </header>
+        
+        <div class="content">
+            <div class="text">
+                <h1>We deliver every type of food. <br> Like 
+                    <div class="slider">
+                        <span id="smaller"> Starbucks</span>
+                        <span> Mc</span>
+                        <span> Pizza</span>
+                        <span> Sushi</span>
+                        <span> KFC</span>
+                    </div>
+
+                    
+                </h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis 
+                    bibendum dolor in semper. Integer quis porta libero. Donec vehicula 
+                    non augue sit amet cursus. In tortor enim, auctor dictum felis consectetur. </p>
+                <a href="restaurants.php" class="restaurant-link">Visit Restaurant </a>
+            </div>
+            <img class="foodimage fadein" src="IMAGES/img0.png">
+
+
+            <div class="circle"></div>
         </div>
-
-        <ul class="menu">
-            <?php
-            session_start();
-
-            if(isset($_SESSION['username']))
-            echo '<li><a href="profile.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Profile</a> </li>';
-            else {
-            echo  '<li><a href="login.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()">Login / Register</a> </li>';
-            }
-            ?>
-
-            <li><a href="restaurants.php" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Restaurants</a> </li>
-            <li><a href="favorites.php" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
-            <?php
-
-            if(isset($_SESSION['username']) and $_SESSION['isOwner']) {
-                echo '<li><a href="myrestaurants.php" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Restaurants</a> </li>';
-            }
-            else {
-                echo '<li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Orders</a> </li>';
-            }
-            ?>
-        </ul>
-    
-    </header>
-    
-    <div class="content">
-        <div class="text">
-            <h1>We deliver every type of food. <br> Like 
-                <div class="slider">
-                    <span> Starbucks</span>
-                    <span> Mc</span>
-                    <span> Pizza</span>
-                    <span> Sushi</span>
-                    <span> KFC</span>
-                </div>
-
-                
-            </h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis 
-                bibendum dolor in semper. Integer quis porta libero. Donec vehicula 
-                non augue sit amet cursus. In tortor enim, auctor dictum felis consectetur. </p>
-            <a href="restaurants.php" class="restaurant-link">Visit Restaurant </a>
-        </div>
-        <img class="foodimage fadein" src="IMAGES/img0.png">
-
-
-        <div class="circle"></div>
     </div>
 
    

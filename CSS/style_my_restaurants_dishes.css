@@ -59,3 +59,10 @@ input[type="file"]{
 .answer{
     padding-left: 1em;
 }
+
+@media (max-width: 480px) {
+    #my_restaurant_container{
+        transform: scale(85%);
+    }
+
+}

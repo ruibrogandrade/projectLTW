@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="CSS/style_all.css">
     <link rel="stylesheet" href="CSS/style_restaurants.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
   </head>
   <body  class="mainpage">
   <header>
@@ -37,9 +38,7 @@
             if(isset($_SESSION['username']) and $_SESSION['isOwner']) {
                 echo '<li><a href="myrestaurants.php" class="menu_element" onmouseover="changeColor(3)" onmouseout="defaultColor()">My Restaurants</a> </li>';
             }
-            else {
-                echo '<li><a href="#" class="menu_element" onmouseover="changeColor(4)" onmouseout="defaultColor()">My Orders</a> </li>';
-            }
+
             ?>
         </ul>
 
