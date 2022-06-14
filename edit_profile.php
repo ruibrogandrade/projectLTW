@@ -17,8 +17,14 @@
 
         <ul class="menu">
             <?php
-
             session_start();
+
+            if ($_SESSION['csrf'] !== $_POST['csrf']) {
+                echo "<script>";
+                echo "alert('Request does not appear to be legitimate');";
+                echo "window.location = '../profile.php';"; // redirect with javascript, after page loads
+                echo "</script>";
+              }
 
             if(isset($_SESSION['username']))
             echo '<li><a href="profile.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Profile</a> </li>';
@@ -63,7 +69,8 @@
                 <input type="password" name="password" placeholder="password">
                 <input type="text" name="address" value="' . $_SESSION['address'] . '">
                 <input type="tel" name="phoneNumber" value="' . $_SESSION['phoneNumber'] . '">
-                <input type="submit" value="Edit Info"></input>' 
+                <input type="submit" value="Edit Info"></input>
+                <input type="hidden" name="csrf" value="<?=$_SESSION[' . 'csrf' . ']?>">' 
             ?>
         </form> 
 

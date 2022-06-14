@@ -17,7 +17,6 @@
 
         <ul class="menu">
             <?php
-
             session_start();
 
             if(isset($_SESSION['username']))
@@ -60,7 +59,7 @@
           <input type="tel" name="phoneNumber" placeholder="phone number">
 
           <input type="submit" value="Register"></input> 
-
+          <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
         </form> 
     </div>
   </body>

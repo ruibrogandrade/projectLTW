@@ -18,7 +18,6 @@
 
         <ul class="menu">
             <?php
-
             session_start();
 
             if(isset($_SESSION['username']))
@@ -59,11 +58,14 @@
         </ul>
 
         <form action="edit_profile.php">
+            
             <input type="submit" value="Edit information?"/></input>
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
         </form>
 
         <form class="register" action="action_logout.php">
             <input type="submit" value="Log out"></input> 
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
         </form> 
         
     </div>

@@ -1,7 +1,14 @@
 <?php
   declare(strict_types = 1);
+  require_once('random_token.php');
+   session_start();
 
-  session_start();
+  if ($_SESSION['csrf'] !== $_POST['csrf']) {
+    echo "<script>";
+    echo "alert('Request does not appear to be legitimate');";
+    echo "window.location = '../edit_profile.php';"; // redirect with javascript, after page loads
+    echo "</script>";
+  }
 
   require_once('database/connection.db.php');
   require_once('database/user_class.php');

@@ -25,7 +25,6 @@
       
         <ul class="menu">
             <?php
-
             session_start();
 
             if(isset($_SESSION['username']))

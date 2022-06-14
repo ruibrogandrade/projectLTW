@@ -17,7 +17,6 @@
 
         <ul class="menu">
             <?php
-
             session_start();
 
             if(isset($_SESSION['username']))
@@ -50,6 +49,8 @@
           <form class="loginforms" action="action_login.php" method="post">
             <input type="text" name="username" placeholder="username">
             <input type="password" name="password" placeholder="password">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+
             
             <a href="register.php">Don't have an account? Register</a>
             
