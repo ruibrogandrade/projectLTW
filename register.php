@@ -5,8 +5,10 @@
     <title>Register Page</title>
     <link rel="stylesheet" href="CSS/style_all.css">
     <link rel="stylesheet" href="CSS/style_profile.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="mainpage">
+<div class="wrapper">
 <header>
         <h1><a href="/">Porto Eats</a></h1>
         
@@ -60,7 +62,9 @@
 
         </form> 
     </div>
+  </div>
   </body>
-</html>
+
+  </html>
 
 <script src="javascript/slidebar.js"></script>

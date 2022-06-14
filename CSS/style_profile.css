@@ -8,7 +8,6 @@ header h1 a {
 	justify-content: center;
 
 	flex-direction: column;
-	height: 70vh;
 
     margin: auto;
 	background-color: #fff;
@@ -18,8 +17,9 @@ header h1 a {
 	position: relative;
 	overflow: hidden;
 	width: 500px;
-	max-width: 100%;
-	min-height: 480px;
+	height: 550px;
+	max-width: 80%;
+	margin-bottom: 4em;
 }
 
 .ProfilePage form{
@@ -47,6 +47,8 @@ header h1 a {
 	transition: transform 80ms ease-in;
     margin-top: 0.5em;
     cursor: pointer;
+
+	-webkit-appearance: none;
 }
 
 input[type="submit"][value="Log out"]:active {
@@ -104,4 +106,5 @@ input[type="text"], input[type="password"], input[type="tel"]{
     accent-color: #DF5A17;
     margin-right: 1em;
 }
+
 
