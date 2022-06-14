@@ -43,17 +43,20 @@
       exit(0);
     }
 
+if($username != $_SESSION['username']) {
+  
   $stmt = $db->prepare("SELECT * FROM User WHERE username=?");
   $stmt->execute([$username]); 
   $user = $stmt->fetch();
-
   if($user) {
-      echo "<script>";
-      echo "alert('User already registered!');";
-      echo "window.location = '../edit_profile.php';"; // redirect with javascript, after page loads
-      echo "</script>";
-      exit(0);
-  }
+    echo "<script>";
+    echo "alert('User already registered!');";
+    echo "window.location = '../edit_profile.php';"; // redirect with javascript, after page loads
+    echo "</script>";
+    exit(0);
+}
+}
+
   
   $user = User::editUser($db,$_SESSION['id'], filter_var($_POST['isOwner'],FILTER_VALIDATE_BOOLEAN), $_POST['username'], $_POST['password'], $_POST['address'], (int)$_POST['phoneNumber']);
 

@@ -30,10 +30,13 @@
         header('Location: profile.php');
       }
       else {
-        header('Location: login.php');
+          echo "<script>";
+          echo "alert('User or password incorrect!');";
+          echo "window.location = '../login.php';"; // redirect with javascript, after page loads
+          echo "</script>";
+          exit(0);
+          }
       }
-
-  }
   else {
     header('Location: login.php');
   }
