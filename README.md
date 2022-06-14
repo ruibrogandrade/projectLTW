@@ -1,0 +1,27 @@
+# ltw-t04-g07
+
+## Features
+
+- [x] Register
+- [x] Login/Logout
+- [x] Edit Profile
+- [x] Add Restaurant
+- [x] Edit Restaurant
+- [x] Add Dishes
+- [x] Add Dish Photo
+- [x] List Reviews
+- [x] Restaurant Owner Can Answer to Review
+- [x] List Customer Orders
+- [x] Change Order State
+- [x] Search Restaurants
+- [x] Order Dishes
+- [ ] List My Orders
+- [x] Mark Restaurant as Favourite
+- [x] Mark Dish as Favourite
+- [x] Customer Can Leave a Review
+
+## Credentials
+
+admin/v3rystr0ngp4a55w0rd
+sraloladinha/myr3staurantisth3best
+johndoe/12345678
