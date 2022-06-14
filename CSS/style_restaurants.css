@@ -84,6 +84,7 @@ header h1 a {
     
 }
 
+
 #searchbar{
     height: 50px;
     display: flex;
@@ -529,3 +530,35 @@ header h1 a {
     border-radius: 30px;
 }
 
+
+@media(max-width: 480px){
+    #search-bar-text h1{
+        font-size: medium;
+        margin-bottom: 10px;
+    }
+
+    .heading{
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .category-container span{
+        display: none;
+    }
+
+    #category, #restaurants{
+        margin: 10px;
+    }
+
+    .category-container{
+        margin-top: 0;
+    }
+
+    .category-box{
+        min-height: 80px;
+    }
+
+    #restaurants-container{
+        margin-top: 0px;
+    }
+}
