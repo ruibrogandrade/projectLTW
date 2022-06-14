@@ -15,7 +15,7 @@
   if(strlen($password) < 8) {  //check if password is valid
   echo "<script>";
   echo "alert('Passsword not long enough!');";
-  echo "window.location = '../register.php';"; // redirect with javascript, after page loads
+  echo "window.location = '../edit_profile.php';"; // redirect with javascript, after page loads
   echo "</script>";
   exit(0);
   }
@@ -23,7 +23,7 @@
   if(strlen($number) != 9) {  //check if phone number is valid
       echo "<script>";
       echo "alert('Invalid phone number!');";
-      echo "window.location = '../register.php';"; // redirect with javascript, after page loads
+      echo "window.location = '../edit_profile.php';"; // redirect with javascript, after page loads
       echo "</script>";
       exit(0);
       }
@@ -38,7 +38,7 @@
   if (!preg_match ("/^[a-zA-Z\s]+$/", $username)) {
       echo "<script>";
       echo "alert('Name can only contain letters and spaces');";
-      echo "window.location = '../register.php';"; // redirect with javascript, after page loads
+      echo "window.location = '../edit_profile.php';"; // redirect with javascript, after page loads
       echo "</script>";
       exit(0);
     }
@@ -50,7 +50,7 @@
   if($user) {
       echo "<script>";
       echo "alert('User already registered!');";
-      echo "window.location = '../register.php';"; // redirect with javascript, after page loads
+      echo "window.location = '../edit_profile.php';"; // redirect with javascript, after page loads
       echo "</script>";
       exit(0);
   }
