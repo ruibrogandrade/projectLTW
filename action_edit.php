@@ -56,10 +56,11 @@ if($username != $_SESSION['username']) {
     exit(0);
 }
 }
-
-  
   $user = User::editUser($db,$_SESSION['id'], filter_var($_POST['isOwner'],FILTER_VALIDATE_BOOLEAN), $_POST['username'], $_POST['password'], $_POST['address'], (int)$_POST['phoneNumber']);
 
   session_destroy();
-  header('Location: login.php');
+  echo "<script>";
+  echo "alert('Profile edited successfully!');";
+  echo "window.location = '../login.php';"; // redirect with javascript, after page loads
+  echo "</script>";
 ?>
