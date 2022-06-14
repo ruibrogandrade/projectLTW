@@ -62,9 +62,9 @@
                 <input type="password" name="password" placeholder="password">
                 <input type="text" name="address" value="' . $_SESSION['address'] . '">
                 <input type="tel" name="phoneNumber" value="' . $_SESSION['phoneNumber'] . '">
-                <input type="submit" value="Edit Info"></input>
-                <input type="hidden" name="csrf" value="<?=$_SESSION[\'csrf\']?>">' 
-            ?>
+                <input type="submit" value="Edit Info"></input>' ?>
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+
         </form> 
 
     
