@@ -1,8 +1,15 @@
 <?php
     declare(strict_types = 1);
 
+
     session_start();
 
+    if ($_SESSION['csrf'] !== $_POST['csrf']) {
+        echo "<script>";
+        echo "alert('Request does not appear to be legitimate');";
+        echo "window.location = '../dishes.php';"; // redirect with javascript, after page loads
+        echo "</script>";
+      }
     require_once('database/connection.db.php');
     require_once('database/review_class.php');
 

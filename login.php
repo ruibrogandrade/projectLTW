@@ -19,8 +19,13 @@
 
         <ul class="menu">
             <?php
-
             session_start();
+
+            require_once('random_token.php');
+
+            if (!isset($_SESSION['csrf'])) {
+                $_SESSION['csrf'] = generate_random_token();
+            }
 
             if(isset($_SESSION['username']))
             echo '<li><a href="profile.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Profile</a> </li>';
@@ -50,6 +55,8 @@
           <form class="loginforms" action="action_login.php" method="post">
             <input type="text" name="username" placeholder="username">
             <input type="password" name="password" placeholder="password">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+
             
             <a href="register.php">Don't have an account? Register</a>
             

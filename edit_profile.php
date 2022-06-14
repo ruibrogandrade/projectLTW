@@ -29,7 +29,6 @@
             }
             ?>
 
-
             <li><a href="restaurants.php" class="menu_element" onmouseover="changeColor(1)" onmouseout="defaultColor()">Restaurants</a> </li>
             <li><a href="favorites.php" class="menu_element" onmouseover="changeColor(2)" onmouseout="defaultColor()">Favorites</a> </li>
             <?php
@@ -63,8 +62,9 @@
                 <input type="password" name="password" placeholder="password">
                 <input type="text" name="address" value="' . $_SESSION['address'] . '">
                 <input type="tel" name="phoneNumber" value="' . $_SESSION['phoneNumber'] . '">
-                <input type="submit" value="Edit Info"></input>' 
-            ?>
+                <input type="submit" value="Edit Info"></input>' ?>
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+
         </form> 
 
     

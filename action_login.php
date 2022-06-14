@@ -1,8 +1,17 @@
 <?php
   declare(strict_types = 1);
-
+  require_once('random_token.php');
+  session_set_cookie_params(0, '/', '.app.localhost', true, true);
   session_start();
 
+  if ($_SESSION['csrf'] !== $_POST['csrf']) {
+    echo "<script>";
+    echo "alert('Request does not appear to be legitimate');";
+    echo "window.location = '../login.php';"; // redirect with javascript, after page loads
+    echo "</script>";
+  }
+ 
+  
   require_once('database/connection.db.php');
   require_once('database/user_class.php');
 
@@ -16,14 +25,16 @@
         $_SESSION['username'] = $user->username;
         $_SESSION['address'] = $user->address;
         $_SESSION['phoneNumber'] = $user->phoneNumber;
-
         header('Location: profile.php');
       }
       else {
-        header('Location: login.php');
+          echo "<script>";
+          echo "alert('Username or password incorrect!');";
+          echo "window.location = '../login.php';"; // redirect with javascript, after page loads
+          echo "</script>";
+          exit(0);
+          }
       }
-
-  }
   else {
     header('Location: login.php');
   }

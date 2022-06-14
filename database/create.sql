@@ -23,7 +23,7 @@ CREATE TABLE User (
   username		STRING UNIQUE NOT NULL,
   password	    STRING NOT NULL check(length(password) >= 8),
   address        STRING,
-  phoneNumber   INTEGER
+  phoneNumber   INTEGER NOT NULL check(length(phoneNumber) == 9)
 );
 
 -- Table: Category

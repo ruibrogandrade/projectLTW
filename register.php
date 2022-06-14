@@ -19,8 +19,11 @@
 
         <ul class="menu">
             <?php
-
             session_start();
+
+            if (!isset($_SESSION['csrf'])) {
+              $_SESSION['csrf'] = generate_random_token();
+            }
 
             if(isset($_SESSION['username']))
             echo '<li><a href="profile.php" class="menu_element" onmouseover="changeColor(0)" onmouseout="defaultColor()"> Profile</a> </li>';
@@ -59,7 +62,7 @@
           <input type="tel" name="phoneNumber" placeholder="phone number">
 
           <input type="submit" value="Register"></input> 
-
+          <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
         </form> 
     </div>
   </div>

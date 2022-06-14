@@ -196,7 +196,7 @@
                         <label for="star4"><i class="fas fa-star"></i> </label>
                         <input type="radio" onchange="star(5)"  name="classification" value = "5" id="star5">
                         <label for="star5"><i class="fas fa-star"></i> </label>
-                        
+                        <input type="hidden" name="csrf" value="<?=$_SESSION[' . 'csrf' . ']?>">
                     </div>
                     </input>
                     <p><textarea class="text-box" name="comment" rows="5"></textarea></p>

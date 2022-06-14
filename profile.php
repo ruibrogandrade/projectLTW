@@ -20,7 +20,6 @@
 
         <ul class="menu">
             <?php
-
             session_start();
 
             if(isset($_SESSION['username']))
@@ -63,6 +62,7 @@
 
         <form class="register" action="action_logout.php">
             <input type="submit" value="Log out"></input> 
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
         </form> 
         
     </div>

@@ -27,18 +27,21 @@ class User {
         $stmt = $db->prepare('
           SELECT id, isOwner, username, password, address, phoneNumber
           FROM User 
-          WHERE lower(username) = ? AND password = ?
+          WHERE lower(username) = ?
         ');
   
-        $stmt->execute(array(strtolower($username), hash('sha256', $password)));
-    
-        if ($user = $stmt->fetch()) {
+        $stmt->execute(array(strtolower($username)));
+        $user = $stmt->fetch();
+
+        if ($user && password_verify($password, $user['password'])) {
           return new User((int)$user['id'],(bool)$user['isOwner'],$user['username'],$user['password'],$user['address'],(int)$user['phoneNumber']);
         } else return null;
       }
 
     public static function insertUser($pdo,bool $isOwner, string $username, string $password, string $address, int $phoneNumber) {
-        $password = hash('sha256', $password);
+        $options = ['cost' => 12];
+        $password = password_hash($password, PASSWORD_DEFAULT, $options);
+
         $sql = 'INSERT INTO User VALUES(NULL,:isOwner,:username,:password,:address,:phoneNumber)';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':isOwner', $isOwner);
@@ -62,7 +65,8 @@ class User {
   }
 
   public static function editUser($pdo,int $id, bool $isOwner, string $username, string $password, string $address, int $phoneNumber) {
-        $password = hash('sha256', $password);
+        $options = ['cost' => 12];
+        $password = password_hash($password, PASSWORD_DEFAULT, $options);
         $sql = 'UPDATE User SET isOwner = ?, username = ?, password = ?, address = ?, phoneNumber = ? WHERE id = ?';
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array($isOwner, $username, $password, $address, $phoneNumber ,$id));
