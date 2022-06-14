@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="CSS/style_all.css">
     <link rel="stylesheet" href="CSS/style_restaurants.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
   </head>
   <body  class="mainpage">
   <header>

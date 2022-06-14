@@ -418,7 +418,7 @@ header h1 a {
 .cart {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -120%;
     width: 360px;
     min-height: 100vh;
     padding: 20px;
@@ -531,6 +531,23 @@ header h1 a {
 }
 
 
+@media (max-width: 1240px) {
+    #dishes-container, #reviews-container, #orders-container{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+
+@media (max-width: 860px) {
+    .image:after{
+        display: none;
+    }
+    #dishes-container, #reviews-container, #orders-container{
+        grid-template-columns: 1fr;
+    }
+}
+
+
 @media(max-width: 480px){
     #search-bar-text h1{
         font-size: medium;
@@ -561,4 +578,19 @@ header h1 a {
     #restaurants-container{
         margin-top: 0px;
     }
+
+ 
 }
+
+
+@media (max-width: 480px) {
+    .searchbar{
+        display: block;
+        margin-left: 1em;
+    }
+    #dishes{
+        margin: 0;
+    }
+
+}
+
