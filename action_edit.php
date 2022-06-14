@@ -3,13 +3,6 @@
   require_once('random_token.php');
    session_start();
 
-  if ($_SESSION['csrf'] !== $_POST['csrf']) {
-    echo "<script>";
-    echo "alert('Request does not appear to be legitimate');";
-    echo "window.location = '../edit_profile.php';"; // redirect with javascript, after page loads
-    echo "</script>";
-  }
-
   require_once('database/connection.db.php');
   require_once('database/user_class.php');
 
@@ -35,12 +28,11 @@
       exit(0);
       }
 
-  if ($_SESSION['csrf'] !== $_POST['csrf']) {
+    if ($_SESSION['csrf'] !== $_POST['csrf']) {
       echo "<script>";
-      echo "alert('Request does not appear to be legitimate);";
-      echo "window.location = '../register.php';"; // redirect with javascript, after page loads
+      echo "alert('Request does not appear to be legitimate');";
+      echo "window.location = '../edit_profile.php';"; // redirect with javascript, after page loads
       echo "</script>";
-      exit(0);
     }
 
   if (!preg_match ("/^[a-zA-Z\s]+$/", $username)) {
