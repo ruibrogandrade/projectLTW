@@ -12,7 +12,8 @@
     echo "window.location = '../login.php';"; // redirect with javascript, after page loads
     echo "</script>";
   }
-
+ 
+  
   require_once('database/connection.db.php');
   require_once('database/user_class.php');
 
