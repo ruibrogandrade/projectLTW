@@ -58,9 +58,7 @@
         </ul>
 
         <form action="edit_profile.php">
-            
             <input type="submit" value="Edit information?"/></input>
-            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
         </form>
 
         <form class="register" action="action_logout.php">
