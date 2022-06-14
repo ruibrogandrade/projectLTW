@@ -15,7 +15,7 @@
 
     if(strlen($password) < 8) {  //check if password is valid
     echo "<script>";
-    echo "alert('Passsword not long enough!');";
+    echo "alert('Password not long enough!');";
     echo "window.location = '../register.php';"; // redirect with javascript, after page loads
     echo "</script>";
     exit(0);
@@ -51,7 +51,7 @@
 
     if($user) {
         echo "<script>";
-        echo "alert('User already registered!');";
+        echo "alert('Username already exists!');";
         echo "window.location = '../register.php';"; // redirect with javascript, after page loads
         echo "</script>";
         exit(0);

@@ -29,7 +29,7 @@
       }
       else {
           echo "<script>";
-          echo "alert('User or password incorrect!');";
+          echo "alert('Username or password incorrect!');";
           echo "window.location = '../login.php';"; // redirect with javascript, after page loads
           echo "</script>";
           exit(0);

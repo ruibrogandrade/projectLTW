@@ -14,7 +14,7 @@
 
   if(strlen($password) < 8) {  //check if password is valid
   echo "<script>";
-  echo "alert('Passsword not long enough!');";
+  echo "alert('Password not long enough!');";
   echo "window.location = '../edit_profile.php';"; // redirect with javascript, after page loads
   echo "</script>";
   exit(0);
@@ -44,13 +44,13 @@
     }
 
 if($username != $_SESSION['username']) {
-  
+
   $stmt = $db->prepare("SELECT * FROM User WHERE username=?");
   $stmt->execute([$username]); 
   $user = $stmt->fetch();
   if($user) {
     echo "<script>";
-    echo "alert('User already registered!');";
+    echo "alert('This username already exists!');";
     echo "window.location = '../edit_profile.php';"; // redirect with javascript, after page loads
     echo "</script>";
     exit(0);
