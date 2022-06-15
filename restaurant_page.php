@@ -441,8 +441,8 @@
                 contentType: false,
                 success: function(response){
                     console.log(response);
-                    $("#dishes-div").append(
-                        '<div id='+id+'> '
+                    $("#dishes-container").prepend(
+                        '<div class="dish-box" id='+id+'> '
                         + '<div class= "crop" ><img src="IMAGES/Dishes/'+ id +'.jpeg"> </div>'
                         + '<p class="info name">'+name+'</p>'
                         + '<p class="info price">'+price+'€</p>'
