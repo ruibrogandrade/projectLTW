@@ -5,7 +5,7 @@
 - [x] Register
 - [x] Login/Logout
 - [x] Edit Profile
-- [x] Add Restaurant
+- [ ] Add Restaurant
 - [x] Edit Restaurant
 - [x] Add Dishes
 - [x] Add Dish Photo
